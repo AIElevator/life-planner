@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String   @id @default(cuid())
+  name          String?
+  email         String   @unique
+  password      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  familyMembers   FamilyMember[]
+  mealLogs        MealLog[]
+  mealPlans       MealPlan[]
+  exerciseLogs    ExerciseLog[]
+  foodPreferences FoodPreference[]
+}
+
+model FamilyMember {
+  id           String   @id @default(cuid())
+  userId       String
+  name         String
+  age          Int
+  relationship String
+  isDefault    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mealLogs  MealLog[]  @relation("MealLogMembers")
+  mealPlans MealPlan[] @relation("MealPlanMembers")
+}
+
+model FoodPreference {
+  id         String   @id @default(cuid())
+  userId     String
+  foodName   String
+  preference String   // "like", "dislike", "allergy"
+  notes      String?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model MealLog {
+  id          String   @id @default(cuid())
+  userId      String
+  date        DateTime
+  mealType    String   // "breakfast", "lunch", "dinner", "snack"
+  mealName    String
+  description String?
+  calories    Int?
+  budget      Float?
+  rating      Int?     // 1-5
+  notes       String?
+  createdAt   DateTime @default(now())
+
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  members FamilyMember[] @relation("MealLogMembers")
+}
+
+model MealPlan {
+  id            String   @id @default(cuid())
+  userId        String
+  date          DateTime
+  mealType      String
+  mealName      String
+  recipe        String?  @db.Text
+  servings      Int      @default(1)
+  estimatedCost Float?
+  isCompleted   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  members FamilyMember[] @relation("MealPlanMembers")
+}
+
+model ExerciseLog {
+  id              String   @id @default(cuid())
+  userId          String
+  date            DateTime
+  exerciseType    String
+  durationMinutes Int
+  caloriesBurned  Int?
+  notes           String?
+  intensity       String?  // "low", "moderate", "high"
+  createdAt       DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

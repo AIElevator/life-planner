@@ -1,65 +1,52 @@
-import Image from "next/image";
+import { redirect } from 'next/navigation'
+import { getSession } from '@/lib/auth'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { UtensilsCrossed, Dumbbell, Heart, ChevronRight } from 'lucide-react'
 
-export default function Home() {
+export default async function HomePage() {
+  const session = await getSession()
+  if (session) redirect('/dashboard')
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-gradient-to-br from-emerald-50 to-white flex items-center justify-center p-6">
+      <div className="max-w-lg w-full text-center space-y-8">
+        <div className="space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-600 text-white mb-2">
+            <UtensilsCrossed className="h-8 w-8" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900">Life Planner</h1>
+          <p className="text-lg text-gray-500">
+            AI-powered meal planning, nutrition tracking, and fitness logging for your whole family.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid grid-cols-3 gap-4 py-4">
+          {[
+            { icon: UtensilsCrossed, label: 'Smart meal suggestions' },
+            { icon: Dumbbell, label: 'Exercise tracking' },
+            { icon: Heart, label: 'Food preferences' },
+          ].map(({ icon: Icon, label }) => (
+            <div key={label} className="flex flex-col items-center gap-2 text-center">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
+                <Icon className="h-5 w-5 text-emerald-600" />
+              </div>
+              <span className="text-xs text-gray-500">{label}</span>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
-  );
+
+        <div className="flex flex-col gap-3">
+          <Button asChild size="lg" className="w-full">
+            <Link href="/signup">
+              Get started <ChevronRight className="h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="w-full">
+            <Link href="/login">Sign in</Link>
+          </Button>
+        </div>
+      </div>
+    </main>
+  )
 }
