@@ -1,16 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { format } from 'date-fns'
+import { Sparkles, Clock, PoundSterling, ChefHat, Check, Loader2, X, Users } from 'lucide-react'
+import { saveMealPlan } from '@/actions/meals'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { format } from 'date-fns'
-import { Sparkles, Clock, PoundSterling, ChefHat, Check, Loader2 } from 'lucide-react'
-import { saveMealPlan } from '@/actions/meals'
 
 type FamilyMember = { id: string; name: string; age: number; relationship: string }
-
 type Suggestion = {
   name: string
   description: string
@@ -18,6 +16,13 @@ type Suggestion = {
   estimatedCost: string
   prepTime: string
   recipe: string[]
+}
+
+const mealTypeEmoji: Record<string, string> = {
+  breakfast: '🌅',
+  lunch: '☀️',
+  dinner: '🌙',
+  snack: '🍎',
 }
 
 export function MealSuggestPanel({ familyMembers }: { familyMembers: FamilyMember[] }) {
@@ -45,14 +50,13 @@ export function MealSuggestPanel({ familyMembers }: { familyMembers: FamilyMembe
     setLoading(true)
     setError('')
     setSuggestions([])
-
     try {
       const res = await fetch('/api/suggest-meals', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ memberIds: selectedMembers, mealType, date, budgetPerMeal: budgetPerMeal || null, notes }),
       })
-      if (!res.ok) throw new Error('Failed to get suggestions')
+      if (!res.ok) throw new Error()
       const data = await res.json()
       setSuggestions(data.suggestions ?? [])
     } catch {
@@ -75,155 +79,227 @@ export function MealSuggestPanel({ familyMembers }: { familyMembers: FamilyMembe
   }
 
   return (
-    <Card className="border-emerald-100 bg-gradient-to-br from-emerald-50/50 to-white">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-emerald-600" />
-          AI meal suggestions
-        </CardTitle>
-        <CardDescription>Tell Claude who&apos;s eating and get personalised suggestions</CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-5">
-        {/* Who's eating */}
-        <div className="space-y-2">
-          <Label>Who&apos;s eating?</Label>
-          <div className="flex flex-wrap gap-2">
-            {familyMembers.map(member => (
+    <div className="space-y-6">
+      {/* Config panel */}
+      <div className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-violet-600 to-purple-700 px-6 py-5">
+          <div className="flex items-center gap-3.5">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm ring-1 ring-white/20">
+              <Sparkles className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-white">AI meal suggestions</h2>
+              <p className="mt-0.5 text-sm text-violet-200">Claude picks the perfect meal for your family</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-6 space-y-6">
+          {/* Who's eating */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-gray-400" />
+              <Label className="text-sm font-semibold text-gray-700">Who&apos;s eating?</Label>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {familyMembers.map(member => {
+                const active = selectedMembers.includes(member.id)
+                return (
+                  <button
+                    key={member.id}
+                    type="button"
+                    onClick={() => toggleMember(member.id)}
+                    className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition-all duration-150 ${
+                      active
+                        ? 'border-violet-600 bg-violet-600 text-white shadow-sm shadow-violet-200'
+                        : 'border-gray-200 bg-white text-gray-600 hover:border-violet-300 hover:text-violet-600'
+                    }`}
+                  >
+                    {active && <Check className="h-3.5 w-3.5" />}
+                    {member.name}
+                    <span className={`text-xs ${active ? 'text-violet-200' : 'text-gray-400'}`}>
+                      {member.age}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Meal type */}
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {(['breakfast', 'lunch', 'dinner', 'snack'] as const).map(type => (
               <button
-                key={member.id}
+                key={type}
                 type="button"
-                onClick={() => toggleMember(member.id)}
-                className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-                  selectedMembers.includes(member.id)
-                    ? 'bg-emerald-600 text-white border-emerald-600'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-emerald-300'
+                onClick={() => setMealType(type)}
+                className={`flex flex-col items-center gap-1.5 rounded-xl border p-3 text-sm font-medium transition-all duration-150 ${
+                  mealType === type
+                    ? 'border-violet-600 bg-violet-600 text-white shadow-sm shadow-violet-200'
+                    : 'border-gray-200 bg-white text-gray-600 hover:border-violet-200 hover:bg-violet-50/50'
                 }`}
               >
-                {member.name} ({member.age})
+                <span className="text-xl">{mealTypeEmoji[type]}</span>
+                <span className="capitalize">{type}</span>
               </button>
             ))}
           </div>
-        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="space-y-1.5">
-            <Label htmlFor="mealTypeSelect">Meal</Label>
-            <select
-              id="mealTypeSelect"
-              value={mealType}
-              onChange={e => setMealType(e.target.value)}
-              className="flex h-10 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="breakfast">Breakfast</option>
-              <option value="lunch">Lunch</option>
-              <option value="dinner">Dinner</option>
-              <option value="snack">Snack</option>
-            </select>
+          {/* Date + budget */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-1.5">
+              <Label className="text-sm font-medium text-gray-700">Date</Label>
+              <Input type="date" value={date} onChange={e => setDate(e.target.value)} />
+            </div>
+            <div className="space-y-1.5">
+              <Label className="text-sm font-medium text-gray-700">Budget (£, optional)</Label>
+              <Input
+                type="number"
+                placeholder="e.g. 15"
+                value={budgetPerMeal}
+                onChange={e => setBudgetPerMeal(e.target.value)}
+              />
+            </div>
           </div>
+
+          {/* Notes */}
           <div className="space-y-1.5">
-            <Label htmlFor="dateInput">Date</Label>
+            <Label className="text-sm font-medium text-gray-700">Any requests? (optional)</Label>
             <Input
-              id="dateInput"
-              type="date"
-              value={date}
-              onChange={e => setDate(e.target.value)}
+              placeholder="e.g. something quick, using chicken, comfort food…"
+              value={notes}
+              onChange={e => setNotes(e.target.value)}
             />
           </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="budgetInput">Budget (£, optional)</Label>
-            <Input
-              id="budgetInput"
-              type="number"
-              placeholder="e.g. 15"
-              value={budgetPerMeal}
-              onChange={e => setBudgetPerMeal(e.target.value)}
-            />
-          </div>
-        </div>
 
-        <div className="space-y-1.5">
-          <Label htmlFor="notesInput">Any requests? (optional)</Label>
-          <Input
-            id="notesInput"
-            placeholder="e.g. something quick, using chicken, comfort food night..."
-            value={notes}
-            onChange={e => setNotes(e.target.value)}
-          />
-        </div>
-
-        {error && <p className="text-sm text-red-500">{error}</p>}
-
-        <Button onClick={getSuggestions} disabled={loading} className="w-full md:w-auto">
-          {loading ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Claude is thinking…
-            </>
-          ) : (
-            <>
-              <Sparkles className="h-4 w-4" />
-              Get suggestions
-            </>
+          {/* Error */}
+          {error && (
+            <div className="flex items-center gap-2.5 rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
+              <X className="h-4 w-4 shrink-0" />
+              {error}
+            </div>
           )}
-        </Button>
 
-        {/* Suggestions */}
-        {suggestions.length > 0 && (
-          <div className="space-y-4 pt-2">
-            {suggestions.map((s, i) => (
-              <div key={i} className="rounded-xl border border-gray-100 bg-white p-5 space-y-3">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-semibold text-base">{s.name}</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">{s.description}</p>
+          {/* CTA */}
+          <button
+            onClick={getSuggestions}
+            disabled={loading}
+            className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 py-3.5 text-sm font-semibold text-white shadow-md shadow-violet-200 transition-all duration-150 hover:-translate-y-0.5 hover:from-violet-700 hover:to-purple-800 hover:shadow-violet-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Claude is thinking…
+              </>
+            ) : (
+              <>
+                <Sparkles className="h-4 w-4" />
+                Get 3 suggestions
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Suggestions */}
+      {suggestions.length > 0 && (
+        <div className="space-y-4">
+          <h3 className="flex items-center gap-2 font-semibold text-gray-900">
+            <Sparkles className="h-4 w-4 text-violet-500" />
+            Claude&apos;s suggestions for you
+          </h3>
+
+          {suggestions.map((s, i) => (
+            <div
+              key={i}
+              className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-150 hover:border-violet-100 hover:shadow-md"
+            >
+              {/* Card header */}
+              <div className="border-b border-gray-50 p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <span className="inline-block rounded-full bg-violet-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-violet-500">
+                      Option {i + 1}
+                    </span>
+                    <h3 className="mt-1.5 text-lg font-bold text-gray-900">{s.name}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-500">{s.description}</p>
                   </div>
-                  <Button
-                    size="sm"
-                    variant={saved.includes(s.name) ? 'secondary' : 'outline'}
+                  <button
                     onClick={() => handleSave(s)}
                     disabled={saved.includes(s.name)}
-                    className="shrink-0"
+                    className={`shrink-0 inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 ${
+                      saved.includes(s.name)
+                        ? 'cursor-default border border-emerald-200 bg-emerald-50 text-emerald-700'
+                        : 'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700'
+                    }`}
                   >
                     {saved.includes(s.name) ? (
                       <><Check className="h-3.5 w-3.5" /> Saved</>
-                    ) : 'Save to plan'}
-                  </Button>
+                    ) : (
+                      'Save plan'
+                    )}
+                  </button>
                 </div>
 
-                <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" /> {s.prepTime}
+                <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-500">
+                  <span className="flex items-center gap-2">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-orange-50">
+                      <Clock className="h-3.5 w-3.5 text-orange-500" />
+                    </span>
+                    {s.prepTime}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <PoundSterling className="h-3.5 w-3.5" /> {s.estimatedCost}
+                  <span className="flex items-center gap-2">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-50">
+                      <PoundSterling className="h-3.5 w-3.5 text-emerald-600" />
+                    </span>
+                    {s.estimatedCost}
                   </span>
                 </div>
+              </div>
 
-                <div className="flex flex-wrap gap-1.5">
+              {/* Ingredients */}
+              <div className="border-b border-gray-50 px-5 py-4">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">Ingredients</p>
+                <div className="flex flex-wrap gap-2">
                   {s.ingredients.map((ing, j) => (
-                    <span key={j} className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">
+                    <span
+                      key={j}
+                      className="inline-flex items-center rounded-lg border border-gray-100 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
+                    >
                       {ing}
                     </span>
                   ))}
                 </div>
+              </div>
 
-                <details className="group">
-                  <summary className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 cursor-pointer list-none hover:text-emerald-700">
-                    <ChefHat className="h-3.5 w-3.5" />
+              {/* Recipe */}
+              <details className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 transition-colors hover:bg-gray-50">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+                    <ChefHat className="h-4 w-4 text-amber-500" />
                     How to make it
-                    <span className="ml-auto text-gray-400 group-open:rotate-180 transition-transform">▾</span>
-                  </summary>
-                  <ol className="mt-3 space-y-1.5 pl-4">
+                  </span>
+                  <span className="text-xs text-gray-400 group-open:hidden">Show recipe ▾</span>
+                  <span className="hidden text-xs text-gray-400 group-open:block">Hide ▴</span>
+                </summary>
+                <div className="px-5 pb-5">
+                  <ol className="space-y-3">
                     {s.recipe.map((step, j) => (
-                      <li key={j} className="text-sm text-gray-600 list-decimal">{step}</li>
+                      <li key={j} className="flex gap-3">
+                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-700">
+                          {j + 1}
+                        </span>
+                        <p className="text-sm leading-relaxed text-gray-600">{step}</p>
+                      </li>
                     ))}
                   </ol>
-                </details>
-              </div>
-            ))}
-          </div>
-        )}
-      </CardContent>
-    </Card>
+                </div>
+              </details>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
