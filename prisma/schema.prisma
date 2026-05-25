@@ -16,7 +16,6 @@ model User {
   updatedAt     DateTime @updatedAt
 
   whatsappNumber  String?
-  whatsappApiKey  String?
 
   familyMembers   FamilyMember[]
   mealLogs        MealLog[]

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import twilio from 'twilio'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -14,17 +15,27 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Unauthorised' }, { status: 401 })
   }
 
-  // Find the start and end of today in UTC
+  const accountSid = process.env.TWILIO_ACCOUNT_SID
+  const authToken  = process.env.TWILIO_AUTH_TOKEN
+  const fromNumber = process.env.TWILIO_WHATSAPP_FROM // e.g. "whatsapp:+14155238886"
+
+  if (!accountSid || !authToken || !fromNumber) {
+    return NextResponse.json(
+      { error: 'Twilio credentials not configured' },
+      { status: 500 }
+    )
+  }
+
+  const client = twilio(accountSid, authToken)
+
+  // Start and end of today in UTC
   const now = new Date()
-  const todayStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0))
+  const todayStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()))
   const todayEnd   = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59))
 
-  // Load users who have WhatsApp configured
+  // Users who have a WhatsApp number configured
   const users = await prisma.user.findMany({
-    where: {
-      whatsappNumber: { not: null },
-      whatsappApiKey: { not: null },
-    },
+    where: { whatsappNumber: { not: null } },
     include: {
       mealLogs: {
         where: { date: { gte: todayStart, lte: todayEnd } },
@@ -41,28 +52,25 @@ export async function GET(request: Request) {
   let skipped = 0
 
   for (const user of users) {
-    // Skip users who already logged food today
+    // Skip users who've already logged food today
     if (user.mealLogs.length > 0) {
       skipped++
       continue
     }
 
     const firstName = user.name?.split(' ')[0] ?? 'there'
-    const text = encodeURIComponent(
-      `🍽️ Hey ${firstName}! Time to log today's meals in Life Planner — keeping your food diary up to date is the key to hitting your ManvFat goals this week. Log now 👉 ${appUrl}/meals?log=1`
-    )
-
-    const url = `https://api.callmebot.com/whatsapp.php?phone=${user.whatsappNumber}&text=${text}&apikey=${user.whatsappApiKey}`
+    const body =
+      `🍽️ Hey ${firstName}! You haven't logged your meals today — a quick food diary keeps you on track for your ManvFat weigh-in. Log now 👉 ${appUrl}/meals?log=1`
 
     try {
-      const res = await fetch(url)
-      if (res.ok) {
-        sent++
-      } else {
-        console.error(`CallMeBot error for ${user.whatsappNumber}: ${res.status}`)
-      }
+      await client.messages.create({
+        from: fromNumber,
+        to:   `whatsapp:${user.whatsappNumber}`,
+        body,
+      })
+      sent++
     } catch (err) {
-      console.error(`Failed to send WhatsApp to ${user.whatsappNumber}:`, err)
+      console.error(`Twilio send failed for ${user.whatsappNumber}:`, err)
     }
   }
 
