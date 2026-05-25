@@ -7,6 +7,8 @@ import { UtensilsCrossed, Trash2, Star } from 'lucide-react'
 import { deleteMealLog } from '@/actions/meals'
 import { MealSuggestPanel } from './_components/meal-suggest-panel'
 import { LogMealForm } from './_components/log-meal-form'
+import { ShareDiaryButton } from './_components/share-diary-button'
+import { startOfWeek } from 'date-fns'
 
 export default async function MealsPage({
   searchParams,
@@ -31,6 +33,8 @@ export default async function MealsPage({
     }),
   ])
 
+  const thisWeekStart = startOfWeek(new Date(), { weekStartsOn: 1 })
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -38,7 +42,7 @@ export default async function MealsPage({
           <h1 className="text-2xl font-bold">Meals</h1>
           <p className="text-gray-500 text-sm mt-1">Plan, track, and get AI-powered suggestions</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <Button asChild variant={showSuggest ? 'default' : 'outline'}>
             <a href="/meals?suggest=1">✨ Suggest meals</a>
           </Button>
@@ -62,6 +66,21 @@ export default async function MealsPage({
           </CardContent>
         </Card>
       )}
+
+      {/* ManvFat diary share */}
+      <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-5 text-white">
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h2 className="font-semibold flex items-center gap-2">
+              📋 Share your food diary
+            </h2>
+            <p className="text-emerald-100 text-sm mt-0.5">
+              Generate a link to this week&apos;s diary — paste it straight into WhatsApp for your ManvFat club owner.
+            </p>
+          </div>
+          <ShareDiaryButton weekDate={thisWeekStart} />
+        </div>
+      </div>
 
       <Card>
         <CardHeader>
@@ -94,7 +113,7 @@ export default async function MealsPage({
                       </div>
                       {meal.members.length > 0 && (
                         <p className="text-xs text-gray-400 mt-0.5">
-                          {meal.members.map(m => m.name).join(', ')}
+                          {meal.members.map((m: { name: string }) => m.name).join(', ')}
                         </p>
                       )}
                       {meal.notes && <p className="text-xs text-gray-400 mt-0.5 italic">{meal.notes}</p>}

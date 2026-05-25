@@ -20,6 +20,7 @@ model User {
   mealPlans       MealPlan[]
   exerciseLogs    ExerciseLog[]
   foodPreferences FoodPreference[]
+  diaryShares     DiaryShare[]
 }
 
 model FamilyMember {
@@ -93,3 +94,17 @@ model ExerciseLog {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model DiaryShare {
+  id         String   @id @default(cuid())
+  token      String   @unique @default(cuid())
+  userId     String
+  weekStart  DateTime // Monday of the shared week
+  label      String?  // optional note e.g. "Week 3 - ManvFat"
+  viewCount  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
