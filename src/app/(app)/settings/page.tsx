@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { revalidatePath } from 'next/cache'
+import { saveWhatsappSettings } from '@/actions/settings'
 
 async function updateName(formData: FormData) {
   'use server'
@@ -95,6 +96,69 @@ export default async function SettingsPage() {
               </form>
             ))}
           </div>
+        </CardContent>
+      </Card>
+
+      {/* WhatsApp reminders */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            💬 WhatsApp reminders
+            {user?.whatsappNumber && user?.whatsappApiKey && (
+              <span className="text-xs font-normal px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+                ✓ Connected
+              </span>
+            )}
+          </CardTitle>
+          <CardDescription>
+            Get a WhatsApp message at 7pm if you haven&apos;t logged your food that day.
+            Uses the free <strong>CallMeBot</strong> service.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          {/* Setup instructions */}
+          <div className="rounded-xl bg-amber-50 border border-amber-200 p-4 text-sm space-y-2">
+            <p className="font-semibold text-amber-800">One-time setup (takes 2 minutes):</p>
+            <ol className="list-decimal list-inside space-y-1 text-amber-700">
+              <li>Save this number in your contacts: <strong>+34 644 68 74 14</strong> (name it &quot;CallMeBot&quot;)</li>
+              <li>Send this exact message to that number on WhatsApp:<br />
+                <code className="bg-white/60 px-1.5 py-0.5 rounded text-xs font-mono">I allow callmebot to send me messages</code>
+              </li>
+              <li>You&apos;ll receive a reply with your <strong>API key</strong> — paste it below</li>
+            </ol>
+          </div>
+
+          <form action={saveWhatsappSettings} className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="whatsappNumber">WhatsApp number</Label>
+                <Input
+                  id="whatsappNumber"
+                  name="whatsappNumber"
+                  defaultValue={user?.whatsappNumber ?? ''}
+                  placeholder="447700900123 (no + or spaces)"
+                />
+                <p className="text-xs text-gray-400">Include country code, no + or spaces</p>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="whatsappApiKey">CallMeBot API key</Label>
+                <Input
+                  id="whatsappApiKey"
+                  name="whatsappApiKey"
+                  defaultValue={user?.whatsappApiKey ?? ''}
+                  placeholder="Paste the key from CallMeBot here"
+                />
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button type="submit" variant="outline" size="sm">Save reminder settings</Button>
+              {user?.whatsappNumber && (
+                <p className="text-xs text-gray-400">
+                  Reminder will fire at 7pm each day you haven&apos;t logged any meals.
+                </p>
+              )}
+            </div>
+          </form>
         </CardContent>
       </Card>
 
