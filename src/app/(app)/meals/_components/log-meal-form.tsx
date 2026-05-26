@@ -9,7 +9,17 @@ import { format } from 'date-fns'
 
 type FamilyMember = { id: string; name: string; age: number; relationship: string }
 
-export function LogMealForm({ familyMembers }: { familyMembers: FamilyMember[] }) {
+export function LogMealForm({
+  familyMembers,
+  defaultMealName,
+  defaultCalories,
+  defaultMealType,
+}: {
+  familyMembers: FamilyMember[]
+  defaultMealName?: string
+  defaultCalories?: number
+  defaultMealType?: string
+}) {
   const [state, action, pending] = useActionState(logMeal, undefined)
 
   return (
@@ -35,6 +45,7 @@ export function LogMealForm({ familyMembers }: { familyMembers: FamilyMember[] }
           <Label htmlFor="mealType">Meal type</Label>
           <select
             name="mealType"
+            defaultValue={defaultMealType ?? 'dinner'}
             className="flex h-10 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <option value="breakfast">Breakfast</option>
@@ -50,6 +61,7 @@ export function LogMealForm({ familyMembers }: { familyMembers: FamilyMember[] }
         <Input
           id="mealName"
           name="mealName"
+          defaultValue={defaultMealName ?? ''}
           placeholder="e.g. Spaghetti Bolognese"
           error={state?.errors?.mealName?.[0]}
         />
@@ -70,7 +82,7 @@ export function LogMealForm({ familyMembers }: { familyMembers: FamilyMember[] }
       <div className="grid grid-cols-3 gap-4">
         <div className="space-y-1.5">
           <Label htmlFor="calories">Calories (optional)</Label>
-          <Input id="calories" name="calories" type="number" min="0" placeholder="450" />
+          <Input id="calories" name="calories" type="number" min="0" placeholder="450" defaultValue={defaultCalories ?? ''} />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="budget">Cost £ (optional)</Label>

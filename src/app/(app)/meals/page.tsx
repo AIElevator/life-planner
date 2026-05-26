@@ -8,17 +8,18 @@ import { deleteMealLog } from '@/actions/meals'
 import { MealSuggestPanel } from './_components/meal-suggest-panel'
 import { LogMealForm } from './_components/log-meal-form'
 import { ShareDiaryButton } from './_components/share-diary-button'
+import { RecipeLibrary } from './_components/recipe-library'
 import { startOfWeek } from 'date-fns'
 
 export default async function MealsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ suggest?: string; log?: string }>
+  searchParams: Promise<{ suggest?: string; log?: string; meal?: string; calories?: string; type?: string }>
 }) {
   const session = await requireAuth()
   const params = await searchParams
   const showSuggest = params.suggest === '1'
-  const showLog = params.log === '1'
+  const showLog = params.log === '1' || !!params.meal
 
   const [familyMembers, mealLogs] = await Promise.all([
     prisma.familyMember.findMany({
@@ -40,11 +41,11 @@ export default async function MealsPage({
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-2xl font-bold">Meals</h1>
-          <p className="text-gray-500 text-sm mt-1">Plan, track, and get AI-powered suggestions</p>
+          <p className="text-gray-500 text-sm mt-1">Browse recipes, plan meals, and track what you eat</p>
         </div>
         <div className="flex gap-2 flex-wrap">
           <Button asChild variant={showSuggest ? 'default' : 'outline'}>
-            <a href="/meals?suggest=1">✨ Suggest meals</a>
+            <a href="/meals?suggest=1">✨ AI suggestions</a>
           </Button>
           <Button asChild variant={showLog ? 'default' : 'outline'}>
             <a href="/meals?log=1">Log meal</a>
@@ -62,10 +63,29 @@ export default async function MealsPage({
             <CardTitle>Log a meal</CardTitle>
           </CardHeader>
           <CardContent>
-            <LogMealForm familyMembers={familyMembers} />
+            <LogMealForm
+              familyMembers={familyMembers}
+              defaultMealName={params.meal}
+              defaultCalories={params.calories ? parseInt(params.calories) : undefined}
+              defaultMealType={params.type}
+            />
           </CardContent>
         </Card>
       )}
+
+      {/* Recipe library */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            🍽️ Healthy recipe library
+            <span className="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">25 meals</span>
+          </CardTitle>
+          <p className="text-sm text-gray-500 mt-0.5">Browse, read the recipe, then tap &quot;Log this meal&quot; to record it.</p>
+        </CardHeader>
+        <CardContent>
+          <RecipeLibrary />
+        </CardContent>
+      </Card>
 
       {/* ManvFat diary share */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-5 text-white">
