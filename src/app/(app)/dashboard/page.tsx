@@ -387,7 +387,7 @@ export default async function DashboardPage() {
           >
             <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className={`relative w-10 h-10 rounded-xl ${iconBg} shadow-md ${iconShadow} flex items-center justify-center mb-4`}>
-              <Icon className="h-4.5 w-4.5 text-white" />
+              <Icon className="h-4 w-4 text-white" />
             </div>
             <p className="text-2xl font-bold text-gray-900 leading-none tracking-tight">{value}</p>
             <p className="text-xs font-semibold text-gray-500 mt-1.5">{label}</p>

@@ -142,8 +142,8 @@ export default function AdvicePage() {
       </div>
 
       {/* Section nav */}
-      <nav className="sticky top-0 z-10 -mx-1 bg-white/90 backdrop-blur-sm border-b border-gray-100/80 py-2.5 px-1">
-        <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
+      <nav className="sticky top-0 z-10 -mx-5 bg-white/90 backdrop-blur-sm border-b border-gray-100/80 py-2.5">
+        <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5 px-5">
           {[
             { href: '#essentials', label: '📋 Essentials' },
             { href: '#neat', label: '🏃 Off the ball' },
@@ -166,7 +166,7 @@ export default function AdvicePage() {
       </nav>
 
       {/* Core principles */}
-      <section id="essentials" className="space-y-4">
+      <section id="essentials" className="space-y-4 scroll-mt-14">
         <h2 className="font-semibold text-gray-800 text-lg">The essentials</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {weightLossTips.map(({ icon: Icon, title, colour, content, stat }) => {
@@ -188,7 +188,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Off-the-Ball Work — NEAT */}
-      <section id="neat" className="space-y-4">
+      <section id="neat" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             <Activity className="h-5 w-5 text-orange-400" />
@@ -290,7 +290,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Hydration */}
-      <section id="hydration" className="space-y-4">
+      <section id="hydration" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             <Droplets className="h-5 w-5 text-cyan-500" />
@@ -426,7 +426,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Supplements */}
-      <section id="supplements" className="space-y-4">
+      <section id="supplements" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             <Pill className="h-5 w-5 text-gray-400" />
@@ -487,7 +487,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Match day eating */}
-      <section id="match-day" className="space-y-4">
+      <section id="match-day" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             ⚽ Match day eating
@@ -603,7 +603,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Weigh-in prep */}
-      <section id="weigh-in" className="space-y-4">
+      <section id="weigh-in" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             ⚖️ ManvFat weigh-in strategy
@@ -693,7 +693,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Takeaway survival guide */}
-      <section id="takeaways" className="space-y-4">
+      <section id="takeaways" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             🥡 Takeaway survival guide
@@ -1003,7 +1003,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Pub & weekend survival guide */}
-      <section id="weekend" className="space-y-4">
+      <section id="weekend" className="space-y-4 scroll-mt-14">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             🍺 Pub &amp; weekend survival guide

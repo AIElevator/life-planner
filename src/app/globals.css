@@ -43,3 +43,17 @@ body {
   background: #bbf7d0;
   color: #14532d;
 }
+
+/* Hide scrollbar utility (used on horizontally-scrolling nav strips) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll padding for sticky nav on advice page */
+html {
+  scroll-padding-top: 56px;
+}

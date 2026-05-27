@@ -174,7 +174,7 @@ export default async function ProgressPage() {
       <div className="bg-white rounded-2xl border border-gray-100 p-5">
         <h2 className="font-semibold text-gray-900 text-sm mb-4">Log a weigh-in</h2>
         <form action={logWeighIn} className="space-y-4">
-          <div className="flex gap-4 flex-wrap items-end">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="weightKg">Weight (kg)</Label>
               <Input
@@ -185,7 +185,6 @@ export default async function ProgressPage() {
                 min="20"
                 max="400"
                 placeholder="e.g. 94.5"
-                className="w-32"
                 required
               />
             </div>
@@ -196,10 +195,9 @@ export default async function ProgressPage() {
                 name="date"
                 type="date"
                 defaultValue={format(today, 'yyyy-MM-dd')}
-                className="w-40"
               />
             </div>
-            <div className="space-y-1.5 flex-1 min-w-40">
+            <div className="space-y-1.5 col-span-2 sm:col-span-1">
               <Label htmlFor="notes">Notes (optional)</Label>
               <Input
                 id="notes"

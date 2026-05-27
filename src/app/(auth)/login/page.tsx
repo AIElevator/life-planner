@@ -57,7 +57,7 @@ function LoginInner() {
             </p>
           </div>
 
-          <p className="text-sm text-emerald-300">Free to use · No credit card needed</p>
+          <p className="text-sm text-emerald-300">14-day free trial · No credit card needed</p>
         </div>
       </div>
 
