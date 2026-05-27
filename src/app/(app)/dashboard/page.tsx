@@ -138,10 +138,7 @@ export default async function DashboardPage() {
   const calorieTarget = user?.dailyCalorieTarget ?? 2000
   const proteinTarget = user?.dailyProteinTarget ?? 150
   const totalCaloriesToday = todayMeals.reduce((sum: number, m) => sum + (m.calories ?? 0), 0)
-  const totalProteinToday = todayMeals.reduce((sum: number, m) => {
-    // Protein isn't stored per meal; proxy via recipe library if we can, otherwise 0
-    return sum
-  }, 0)
+  const totalProteinToday = todayMeals.reduce((sum: number, m) => sum + (m.proteinG ?? 0), 0)
   const totalExerciseMinutes = todayExercise.reduce((sum: number, e) => sum + e.durationMinutes, 0)
   const weeklyCaloriesBurned = recentExercise.reduce((sum: number, e) => sum + (e.caloriesBurned ?? 0), 0)
 

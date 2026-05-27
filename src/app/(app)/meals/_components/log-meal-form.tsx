@@ -13,11 +13,13 @@ export function LogMealForm({
   familyMembers,
   defaultMealName,
   defaultCalories,
+  defaultProteinG,
   defaultMealType,
 }: {
   familyMembers: FamilyMember[]
   defaultMealName?: string
   defaultCalories?: number
+  defaultProteinG?: number
   defaultMealType?: string
 }) {
   const [state, action, pending] = useActionState(logMeal, undefined)
@@ -79,17 +81,21 @@ export function LogMealForm({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <div className="space-y-1.5">
           <Label htmlFor="calories">Calories (optional)</Label>
           <Input id="calories" name="calories" type="number" min="0" placeholder="450" defaultValue={defaultCalories ?? ''} />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="proteinG">Protein g (optional)</Label>
+          <Input id="proteinG" name="proteinG" type="number" min="0" placeholder="35" defaultValue={defaultProteinG ?? ''} />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="budget">Cost £ (optional)</Label>
           <Input id="budget" name="budget" type="number" min="0" step="0.01" placeholder="8.50" />
         </div>
         <div className="space-y-1.5">
-          <Label htmlFor="rating">Rating (1-5)</Label>
+          <Label htmlFor="rating">Rating (1–5)</Label>
           <Input id="rating" name="rating" type="number" min="1" max="5" placeholder="4" />
         </div>
       </div>

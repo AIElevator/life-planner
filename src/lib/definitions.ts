@@ -21,6 +21,7 @@ export const MealLogSchema = z.object({
   mealName: z.string().min(1, 'Meal name is required').trim(),
   description: z.string().optional(),
   calories: z.coerce.number().optional(),
+  proteinG: z.coerce.number().optional(),
   budget: z.coerce.number().optional(),
   rating: z.coerce.number().min(1).max(5).optional(),
   notes: z.string().optional(),

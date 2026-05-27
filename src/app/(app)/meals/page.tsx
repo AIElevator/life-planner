@@ -14,7 +14,7 @@ import { startOfWeek } from 'date-fns'
 export default async function MealsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ suggest?: string; log?: string; meal?: string; calories?: string; type?: string }>
+  searchParams: Promise<{ suggest?: string; log?: string; meal?: string; calories?: string; protein?: string; type?: string }>
 }) {
   const session = await requireAuth()
   const params = await searchParams
@@ -67,6 +67,7 @@ export default async function MealsPage({
               familyMembers={familyMembers}
               defaultMealName={params.meal}
               defaultCalories={params.calories ? parseInt(params.calories) : undefined}
+              defaultProteinG={params.protein ? parseInt(params.protein) : undefined}
               defaultMealType={params.type}
             />
           </CardContent>
@@ -78,9 +79,9 @@ export default async function MealsPage({
         <CardHeader>
           <CardTitle className="text-base flex items-center gap-2">
             🍽️ Easy & healthy recipe library
-            <span className="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">25 meals</span>
+            <span className="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">50 meals</span>
           </CardTitle>
-          <p className="text-sm text-gray-500 mt-0.5">Browse 25 easy, healthy recipes then tap &quot;Log this meal&quot; to record it.</p>
+          <p className="text-sm text-gray-500 mt-0.5">Browse 50 easy, healthy recipes then tap &quot;Log this meal&quot; to record it.</p>
         </CardHeader>
         <CardContent>
           <RecipeLibrary />
@@ -123,6 +124,7 @@ export default async function MealsPage({
                         <span>{getMealTypeLabel(meal.mealType)}</span>
                         <span>{formatDate(meal.date)}</span>
                         {meal.calories && <span>{meal.calories} kcal</span>}
+                        {meal.proteinG && <span>{meal.proteinG}g protein</span>}
                         {meal.budget && <span>{formatCurrency(meal.budget)}</span>}
                         {meal.rating && (
                           <span className="flex items-center gap-0.5 text-amber-400">

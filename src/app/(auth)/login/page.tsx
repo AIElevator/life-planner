@@ -53,7 +53,7 @@ function LoginInner() {
               Feel great.
             </h2>
             <p className="text-lg text-emerald-100">
-              Your AI-powered health companion for the whole family.
+              Simple tools to eat well, stay active, and feel your best — for you and your whole family.
             </p>
           </div>
 

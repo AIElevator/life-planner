@@ -206,7 +206,7 @@ export function RecipeLibrary() {
 
               {/* Log CTA */}
               <a
-                href={`/meals?log=1&meal=${encodeURIComponent(selected.name)}&calories=${selected.calories}&type=${selected.mealType}`}
+                href={`/meals?log=1&meal=${encodeURIComponent(selected.name)}&calories=${selected.calories}&protein=${selected.proteinG}&type=${selected.mealType}`}
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-200 hover:bg-emerald-700 transition-colors"
               >
                 Log this meal →

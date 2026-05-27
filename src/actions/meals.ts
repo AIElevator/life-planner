@@ -17,6 +17,7 @@ export async function logMeal(state: FormState, formData: FormData): Promise<For
     mealName: formData.get('mealName'),
     description: formData.get('description') || undefined,
     calories: formData.get('calories') || undefined,
+    proteinG: formData.get('proteinG') || undefined,
     budget: formData.get('budget') || undefined,
     rating: formData.get('rating') || undefined,
     notes: formData.get('notes') || undefined,
@@ -124,6 +125,7 @@ export async function copyYesterdaysMeals(): Promise<void> {
         mealName: meal.mealName,
         description: meal.description,
         calories: meal.calories,
+        proteinG: meal.proteinG,
         budget: meal.budget,
         notes: meal.notes,
         members: meal.members.length

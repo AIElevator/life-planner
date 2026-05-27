@@ -141,8 +141,32 @@ export default function AdvicePage() {
         <p className="text-gray-500 text-sm mt-1">Evidence-based advice. No gimmicks, no fads.</p>
       </div>
 
+      {/* Section nav */}
+      <nav className="sticky top-0 z-10 -mx-1 bg-white/90 backdrop-blur-sm border-b border-gray-100/80 py-2.5 px-1">
+        <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5">
+          {[
+            { href: '#essentials', label: '📋 Essentials' },
+            { href: '#neat', label: '🏃 Off the ball' },
+            { href: '#hydration', label: '💧 Hydration' },
+            { href: '#supplements', label: '💊 Supplements' },
+            { href: '#match-day', label: '⚽ Match day' },
+            { href: '#weigh-in', label: '⚖️ Weigh-in' },
+            { href: '#takeaways', label: '🥡 Takeaways' },
+            { href: '#weekend', label: '🍺 Weekend' },
+          ].map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="shrink-0 rounded-xl px-3 py-1.5 text-xs font-semibold text-gray-500 hover:bg-emerald-50 hover:text-emerald-700 transition-colors whitespace-nowrap"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {/* Core principles */}
-      <section className="space-y-4">
+      <section id="essentials" className="space-y-4">
         <h2 className="font-semibold text-gray-800 text-lg">The essentials</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {weightLossTips.map(({ icon: Icon, title, colour, content, stat }) => {
@@ -164,7 +188,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Off-the-Ball Work — NEAT */}
-      <section className="space-y-4">
+      <section id="neat" className="space-y-4">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             <Activity className="h-5 w-5 text-orange-400" />
@@ -402,7 +426,7 @@ export default function AdvicePage() {
       </section>
 
       {/* Supplements */}
-      <section className="space-y-4">
+      <section id="supplements" className="space-y-4">
         <div>
           <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
             <Pill className="h-5 w-5 text-gray-400" />
@@ -664,6 +688,545 @@ export default function AdvicePage() {
             Week-to-week fluctuations are normal and often frustrating. What matters is the trend over four to
             six weeks. One bad weigh-in doesn&apos;t mean you&apos;re failing. Look at the direction of travel, not
             the individual data points. The app&apos;s Progress page shows you the trend line.
+          </p>
+        </div>
+      </section>
+
+      {/* Takeaway survival guide */}
+      <section id="takeaways" className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            🥡 Takeaway survival guide
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">Real life has takeaways. Here is how to order without undoing the week.</p>
+        </div>
+
+        <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-amber-800 text-sm">The golden rules — apply to every takeaway</p>
+          <ul className="text-sm text-amber-700 space-y-1.5 mt-2">
+            {[
+              'Protein first — always identify the highest-protein option and build the meal around it.',
+              'Skip liquid calories entirely. A large Coke is 200 kcal and zero protein. Water or diet drinks every time.',
+              'One starch, not two. Pick rice or chips or bread — not all three.',
+              'Sauces on the side where possible. Mayo, garlic sauce and korma sauce are where the damage happens.',
+              'Eat slowly. It takes 20 minutes for your stomach to signal fullness. The faster you eat, the more you will consume.',
+            ].map((rule) => (
+              <li key={rule} className="flex items-start gap-2">
+                <span className="text-amber-500 shrink-0 mt-0.5">✓</span>
+                <span>{rule}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Individual takeaway cards */}
+        <div className="space-y-3">
+
+          {/* McDonald's */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🍔</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">McDonald&apos;s</h3>
+                <p className="text-sm text-gray-500 mt-0.5">Easier than you think if you ignore the meal deal</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Grilled Chicken Burger — ~390 kcal, 28 g protein</li>
+                    <li>McChicken Sandwich — ~390 kcal, 19 g protein</li>
+                    <li>Hamburger — ~250 kcal if you just want something small</li>
+                    <li>Side salad instead of fries</li>
+                    <li>Diet Coke or water — saves 200 kcal over regular</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Big Mac + large fries + regular Coke ≈ 1,200 kcal</li>
+                    <li>Large fries alone — 444 kcal</li>
+                    <li>Milkshake — 400–600 kcal</li>
+                    <li>McFlurry — 330–420 kcal</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>The one switch:</strong> ditch the large fries and regular Coke from a meal deal and you save roughly 650 kcal without giving up the burger.
+              </div>
+            </div>
+          </details>
+
+          {/* KFC */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🍗</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">KFC</h3>
+                <p className="text-sm text-gray-500 mt-0.5">High protein potential — easy to wreck with sides and dips</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Original Recipe breast piece — ~265 kcal, 29 g protein</li>
+                    <li>Two-piece Original meal with corn on the cob</li>
+                    <li>Zinger Salad Box — keeps calories low, reasonable protein</li>
+                    <li>Rice box meals — controlled portion, higher protein ratio</li>
+                    <li>No gravy, ketchup only</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Zinger Tower Burger — 620 kcal before sides</li>
+                    <li>Bargain Bucket for one — easily 1,400+ kcal</li>
+                    <li>Large fries + gravy — adds 600 kcal to any meal</li>
+                    <li>Popcorn Chicken sharing box — 700+ kcal</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>The one switch:</strong> swap large fries and gravy for corn on the cob. Saves around 450 kcal and actually adds fibre.
+              </div>
+            </div>
+          </details>
+
+          {/* Pizza */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🍕</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">Pizza (Domino&apos;s, Papa John&apos;s, local)</h3>
+                <p className="text-sm text-gray-500 mt-0.5">Portion size is everything — the base and sauce vary wildly</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Thin crust over deep pan — roughly half the dough calories</li>
+                    <li>Chicken or veg toppings over processed meat</li>
+                    <li>Tomato base over BBQ (lower sugar)</li>
+                    <li>Two to three slices, eaten on a plate — not from the box</li>
+                    <li>Side salad rather than garlic bread</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Stuffed crust deep pan — adds ~100 kcal per slice vs. thin crust</li>
+                    <li>Sharing box + garlic bread + dips ≈ 1,800+ kcal easily</li>
+                    <li>Garlic mayo or BBQ dip — 150–200 kcal each</li>
+                    <li>Eating direct from the box — you lose track fast</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>Rough guide:</strong> a medium thin-crust slice is around 200–230 kcal. A medium deep-pan slice is 290–340 kcal. Two slices versus six is the real decision.
+              </div>
+            </div>
+          </details>
+
+          {/* Indian */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🍛</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">Indian takeaway</h3>
+                <p className="text-sm text-gray-500 mt-0.5">Cream and butter are where the calories hide — not the spice</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Tandoori or tikka (dry) — 250–350 kcal, high protein</li>
+                    <li>Shish kebab starter — lean grilled meat, good protein</li>
+                    <li>Chicken jalfrezi or madras — tomato-based, lower in fat</li>
+                    <li>Chicken or prawn biryani — rice-based, reasonably balanced</li>
+                    <li>Dal — high fibre, plant protein, low calorie</li>
+                    <li>Plain naan (~340 kcal) rather than keema or peshwari</li>
+                    <li>Raita on the side — cools the heat, low calorie</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Korma — the cream and coconut make it 600–800 kcal per portion</li>
+                    <li>Peshwari naan — 500+ kcal</li>
+                    <li>Onion bhajis — around 200 kcal each, easy to have four</li>
+                    <li>Keema naan — high fat and calories</li>
+                    <li>Mango chutney (fine) + raita + extra naan — adds up invisibly</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>The rule of thumb:</strong> if the sauce is pale (korma, passanda, butter chicken) it is cream-heavy. If it is red or orange (jalfrezi, madras, vindaloo) it is tomato-based and significantly lower in calories.
+              </div>
+            </div>
+          </details>
+
+          {/* Chinese */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🥢</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">Chinese takeaway</h3>
+                <p className="text-sm text-gray-500 mt-0.5">Batter, deep frying and egg fried rice are the main culprits</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Steamed dim sum over deep-fried</li>
+                    <li>Chicken and broccoli — high protein, light sauce</li>
+                    <li>Beef with oyster sauce — lean protein, moderate calories</li>
+                    <li>Boiled/steamed rice — saves ~200 kcal over egg fried rice</li>
+                    <li>Clear broth soups — very low calorie, surprisingly filling</li>
+                    <li>King prawn dishes — high protein, low fat when not battered</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Sweet and sour chicken (battered) — 700–900 kcal</li>
+                    <li>Prawn crackers — 500+ kcal for a standard bag</li>
+                    <li>Egg fried rice — 400–500 kcal vs. 350 for boiled rice</li>
+                    <li>Spring rolls (deep-fried) — 200–250 kcal each</li>
+                    <li>Crispy duck pancakes — high fat, easy to overeat</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>The one switch:</strong> boiled rice over egg fried rice saves around 150–200 kcal and you genuinely cannot taste the difference when there is a sauce on it.
+              </div>
+            </div>
+          </details>
+
+          {/* Kebab shop */}
+          <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all">
+            <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+              <span className="text-2xl shrink-0">🥙</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900">Kebab shop</h3>
+                <p className="text-sm text-gray-500 mt-0.5">Actually has good protein options — if you choose well</p>
+              </div>
+              <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+              <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+            </summary>
+            <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Smart choices</p>
+                  <ul className="text-sm text-emerald-700 space-y-1">
+                    <li>Shish kebab — chargrilled chunks of meat, 25–35 g protein, lower fat than doner</li>
+                    <li>Chicken shish over lamb — leaner protein</li>
+                    <li>Wrap with extra salad, light on the sauce</li>
+                    <li>Pitta over naan — roughly 100 kcal less</li>
+                    <li>Chilli sauce rather than garlic mayo</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+                  <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The damage</p>
+                  <ul className="text-sm text-red-700 space-y-1">
+                    <li>Large doner in naan with chips — easily 1,400 kcal</li>
+                    <li>Garlic mayo sauce — 150–200 kcal per ladle</li>
+                    <li>Large chips — 500–600 kcal</li>
+                    <li>Mixed doner and chips combo — can hit 1,800 kcal</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+                <strong>Shish beats doner</strong> every time. Doner meat is compressed, fatty offcuts. Shish is actual chunks of marinated meat. The calorie difference can be 300–500 kcal for the same portion size.
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+        {/* Summary table */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm">Quick reference — best and worst at a glance</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left">
+              <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="pb-2 font-semibold text-gray-500 w-1/4">Takeaway</th>
+                  <th className="pb-2 font-semibold text-emerald-600">Best order</th>
+                  <th className="pb-2 font-semibold text-red-500 pl-3">Worst trap</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  { place: 'McDonald\'s', best: 'Grilled chicken burger + water', worst: 'Large meal deal' },
+                  { place: 'KFC', best: '2-piece Original + corn on the cob', worst: 'Bargain Bucket + gravy' },
+                  { place: 'Pizza', best: 'Thin crust, 2–3 slices, chicken', worst: 'Stuffed crust deep pan + garlic bread' },
+                  { place: 'Indian', best: 'Tikka or jalfrezi + plain naan', worst: 'Korma + peshwari naan + bhajis' },
+                  { place: 'Chinese', best: 'Chicken and broccoli + boiled rice', worst: 'Sweet and sour (battered) + egg fried rice' },
+                  { place: 'Kebab', best: 'Chicken shish in pitta + salad', worst: 'Large doner in naan + chips + garlic mayo' },
+                ].map(({ place, best, worst }) => (
+                  <tr key={place}>
+                    <td className="py-2.5 font-medium text-gray-700">{place}</td>
+                    <td className="py-2.5 text-emerald-700">{best}</td>
+                    <td className="py-2.5 text-red-600 pl-3">{worst}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="bg-gray-50 rounded-2xl border border-gray-100 p-4">
+          <p className="text-xs text-gray-500 leading-relaxed">
+            <strong className="text-gray-700">The bigger picture:</strong> one takeaway a week will not derail your progress. What matters is the other 20-odd meals. A 700 kcal takeaway in a week with a 500 kcal daily deficit still leaves you in net negative territory. The goal is not to never have a takeaway — it is to make one or two sensible choices per order so the damage is manageable.
+          </p>
+        </div>
+      </section>
+
+      {/* Pub & weekend survival guide */}
+      <section id="weekend" className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            🍺 Pub &amp; weekend survival guide
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">Most diets die on Saturday. Here is how to enjoy yourself without losing the week.</p>
+        </div>
+
+        {/* Why weekends are the main problem */}
+        <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-amber-800 text-sm">Why weekends undo the week</p>
+          <p className="text-sm text-amber-700 leading-relaxed">
+            Research consistently shows that men eat well Monday to Friday and then overshoot by 1,500–2,500 kcal
+            across Saturday and Sunday. That is enough to wipe out a full week of deficit. It is not willpower —
+            it is structure. Weekdays have routines; weekends do not. The solution is not to restrict weekends
+            further, it is to add a few light guardrails so the damage stays manageable.
+          </p>
+          <div className="rounded-lg bg-amber-100 text-amber-800 px-3 py-2 text-xs font-medium">
+            📊 A typical &quot;treat weekend&quot; adds 2,000+ kcal surplus across two days — enough to cancel Mon–Fri
+          </div>
+        </div>
+
+        {/* Alcohol and fat loss */}
+        <details className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 transition-all" open>
+          <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
+            <span className="text-2xl shrink-0">🍻</span>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-gray-900">Alcohol and fat loss — the honest version</h3>
+              <p className="text-sm text-gray-500 mt-0.5">Why it hits harder than the calorie count suggests</p>
+            </div>
+            <span className="text-xs text-gray-400 group-open:hidden shrink-0">Details ▾</span>
+            <span className="text-xs text-gray-400 hidden group-open:block shrink-0">Close ▴</span>
+          </summary>
+          <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
+            <div className="space-y-3">
+              {[
+                {
+                  icon: '⚡',
+                  title: 'Alcohol has 7 kcal per gram — almost as much as fat',
+                  detail: 'Fat has 9 kcal/g, protein and carbs have 4 kcal/g. Alcohol sits at 7 kcal/g with zero nutritional value. Six pints of lager adds roughly 1,100 kcal before you order a single chip.',
+                },
+                {
+                  icon: '🛑',
+                  title: 'Fat burning stops completely while alcohol is in your system',
+                  detail: 'Your liver treats alcohol as a toxin and prioritises clearing it above everything else. Fat oxidation halts for the entire time your body is processing the alcohol — which can be 12–16 hours after a big night.',
+                },
+                {
+                  icon: '🧠',
+                  title: 'It lowers your food inhibitions',
+                  detail: 'Alcohol reduces the activity of the prefrontal cortex — the part of your brain that makes sensible food decisions. The kebab on the way home and the full fry-up in the morning are not accidents; they are a direct pharmacological effect.',
+                },
+                {
+                  icon: '😴',
+                  title: 'It wrecks sleep quality even when you sleep long',
+                  detail: 'Alcohol sedates you but suppresses REM and deep sleep. Poor sleep increases ghrelin (the hunger hormone) by 24% the next day. You will wake up hungrier than usual and have less willpower to resist it.',
+                },
+              ].map(({ icon, title, detail }) => (
+                <div key={title} className="flex items-start gap-3 py-2.5 border-b border-gray-50 last:border-0">
+                  <span className="text-lg shrink-0">{icon}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">{title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="rounded-lg bg-gray-50 border border-gray-100 px-4 py-3 text-xs text-gray-600">
+              <strong>The key insight:</strong> it is rarely the alcohol calories alone that cause the damage. It is the alcohol calories + the late-night food + the hangover eating the next day. One decent night out can easily be 3,000–4,000 kcal total when you add it all up.
+            </div>
+          </div>
+        </details>
+
+        {/* Drink choices */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-4">
+          <h3 className="font-semibold text-gray-900 text-sm">Drink smarter — the calorie reality</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+              <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Lower damage</p>
+              <ul className="text-sm text-emerald-700 space-y-1.5">
+                <li className="flex justify-between"><span>Spirits + diet mixer</span><span className="font-semibold">~65 kcal</span></li>
+                <li className="flex justify-between"><span>Prosecco / champagne (125 ml)</span><span className="font-semibold">~90 kcal</span></li>
+                <li className="flex justify-between"><span>Dry white wine (175 ml)</span><span className="font-semibold">~120 kcal</span></li>
+                <li className="flex justify-between"><span>Light beer / lager (330 ml)</span><span className="font-semibold">~90 kcal</span></li>
+                <li className="flex justify-between"><span>Half pint of regular lager</span><span className="font-semibold">~110 kcal</span></li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+              <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ Higher damage</p>
+              <ul className="text-sm text-red-700 space-y-1.5">
+                <li className="flex justify-between"><span>Pint of premium lager (Peroni etc.)</span><span className="font-semibold">~250 kcal</span></li>
+                <li className="flex justify-between"><span>Pint of Guinness</span><span className="font-semibold">~210 kcal</span></li>
+                <li className="flex justify-between"><span>Spirits + full-fat mixer</span><span className="font-semibold">~200 kcal</span></li>
+                <li className="flex justify-between"><span>Piña colada / Long Island</span><span className="font-semibold">350–500 kcal</span></li>
+                <li className="flex justify-between"><span>Baileys / cream liqueur (50 ml)</span><span className="font-semibold">~130 kcal</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+            <strong>The mixer swap:</strong> switching from full-fat Coke/lemonade to diet saves around 150 kcal per drink. On a six-drink night, that is 900 kcal — almost a full meal — for no perceptible taste difference.
+          </div>
+        </div>
+
+        {/* Pub food */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-4">
+          <h3 className="font-semibold text-gray-900 text-sm">Pub food — the hidden calorie traps</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-2">
+              <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">✓ Reasonable choices</p>
+              <ul className="text-sm text-emerald-700 space-y-1">
+                <li>Steak (no sauce, swap chips for salad)</li>
+                <li>Grilled chicken — ~400–500 kcal with salad</li>
+                <li>Fish — grilled, not battered</li>
+                <li>Burger without the bun if it comes with fries</li>
+                <li>Scampi with side salad over chips</li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-red-50 border border-red-100 p-4 space-y-2">
+              <p className="text-xs font-bold text-red-700 uppercase tracking-wide">✗ The traps</p>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>Beer-battered fish and chips — 1,000–1,200 kcal</li>
+                <li>Pie and mash — 900–1,100 kcal</li>
+                <li>Shared nachos starter — 600–900 kcal between two</li>
+                <li>Bread basket before the meal — 200–300 kcal</li>
+                <li>Onion rings as a side — 400–500 kcal</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 leading-relaxed">
+            The starter is often where the most avoidable damage happens. Ordering a starter when you are hungry from an afternoon of drinking adds 400–600 kcal before the main arrives. If you are going to a pub dinner, eat something small beforehand — it reduces the starter urge entirely.
+          </p>
+        </div>
+
+        {/* Practical strategies */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm">Practical strategies that actually work</h3>
+          <div className="space-y-2">
+            {[
+              {
+                tip: 'Eat a proper meal before going out',
+                detail: 'A chicken and rice meal an hour before going to the pub slows alcohol absorption, reduces early hunger, and removes the impulse to order starters. This one habit alone can save 500–800 kcal on a night out.',
+              },
+              {
+                tip: 'Alternate every drink with a water',
+                detail: 'You will drink roughly half the alcohol, stay more hydrated, get less drunk (which reduces impulsive food decisions), and feel dramatically better in the morning. Most people cannot tell the difference in a pub environment.',
+              },
+              {
+                tip: 'Set your drink limit before you go out, not once you are there',
+                detail: 'Decide on three or four drinks before you leave the house. Once you are two drinks in with your mates suggesting another round, willpower alone will not save you. The decision needs to be made in advance.',
+              },
+              {
+                tip: 'Avoid getting into a round',
+                detail: 'Rounds force you to match other people\'s pace. Ordering for yourself means you drink at your own speed. If you are in a group, order a soft drink occasionally — most people do not notice, and nobody actually cares.',
+              },
+              {
+                tip: 'Plan your post-pub food in advance',
+                detail: 'Put something in the fridge before you go out — Greek yoghurt, a protein bar, some leftover chicken. If there is something decent waiting at home, the kebab shop is less tempting. The decision is made while sober.',
+              },
+              {
+                tip: 'Do not skip breakfast the morning after',
+                detail: 'Skipping breakfast to "compensate" backfires. You will be ravenous by midday, your blood sugar will be all over the place, and you will overeat at lunch. A normal high-protein breakfast is the fastest way back on track.',
+              },
+            ].map(({ tip, detail }) => (
+              <div key={tip} className="flex items-start gap-3 py-2.5 border-b border-gray-50 last:border-0">
+                <span className="text-emerald-500 shrink-0 mt-0.5 font-bold text-sm">✓</span>
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">{tip}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* The morning after */}
+        <div className="bg-white rounded-2xl border border-blue-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm flex items-center gap-2">
+            🌅 The morning after — what the scales are telling you
+          </h3>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            You step on the scales and you are 1.5 kg heavier than yesterday. Before you spiral — this is not fat.
+            To gain 1 kg of actual body fat, you need to eat 7,700 kcal above your maintenance. That does not happen
+            in one night. What you are seeing is:
+          </p>
+          <ul className="space-y-1.5 text-sm text-gray-500">
+            <li className="flex items-start gap-2"><span className="text-blue-400 shrink-0">→</span> Water retention from alcohol and salty food</li>
+            <li className="flex items-start gap-2"><span className="text-blue-400 shrink-0">→</span> Food still sitting in your digestive system</li>
+            <li className="flex items-start gap-2"><span className="text-blue-400 shrink-0">→</span> Glycogen refill from carbohydrates eaten</li>
+            <li className="flex items-start gap-2"><span className="text-blue-400 shrink-0">→</span> Inflammation and increased blood flow from the alcohol</li>
+          </ul>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            It will be gone within 48–72 hours of eating and drinking normally. The worst thing to do is panic, skip
+            meals, or start punishing yourself. Get back to your normal routine immediately — that is genuinely all it takes.
+          </p>
+          <div className="rounded-lg bg-blue-50 border border-blue-100 px-4 py-3 text-xs text-blue-700 font-medium">
+            ✓ One night out does not destroy a week of progress. Two nights out back-to-back every weekend for a month does.
+          </div>
+        </div>
+
+        {/* Weekend structure */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm">A looser weekend structure that still works</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            You do not need to track macros on a Saturday. But having a loose framework stops the
+            weekend from becoming completely unstructured:
+          </p>
+          <div className="space-y-3">
+            {[
+              { phase: 'Saturday morning', colour: 'bg-emerald-50 border-emerald-100 text-emerald-800', text: 'Normal high-protein breakfast — eggs, Greek yoghurt, protein shake. Do not skip it to "save" calories. Starting full means better decisions all day.' },
+              { phase: 'Saturday lunch', colour: 'bg-emerald-50 border-emerald-100 text-emerald-800', text: 'Light and protein-heavy — sandwich, salad, soup. This is the easiest meal to get right and it sets you up well for the evening.' },
+              { phase: 'Saturday evening (pub/out)', colour: 'bg-amber-50 border-amber-100 text-amber-800', text: 'Enjoy yourself with a few sensible switches — diet mixers, lighter drinks, skip the starter, eat before you go out. Aim to stay within 600–800 kcal over your target rather than 2,000.' },
+              { phase: 'Sunday morning', colour: 'bg-blue-50 border-blue-100 text-blue-800', text: 'Normal breakfast even if you feel rough. Hydrate well. Do not skip meals as punishment — it will make Sunday afternoon much harder to control.' },
+              { phase: 'Sunday overall', colour: 'bg-violet-50 border-violet-100 text-violet-800', text: 'Sunday is the recovery day, not a second big evening. Get back to normal eating, walk if you can stomach it, and prepare for Monday properly. The week starts Sunday evening, not Monday morning.' },
+            ].map(({ phase, colour, text }) => (
+              <div key={phase} className={`rounded-xl border ${colour} p-4`}>
+                <p className="text-xs font-bold uppercase tracking-wide mb-1.5">{phase}</p>
+                <p className="text-sm leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-50 rounded-2xl border border-gray-100 p-4">
+          <p className="text-xs text-gray-500 leading-relaxed">
+            <strong className="text-gray-700">The ManvFat perspective:</strong> the weigh-in is the moment of accountability. If you go out Saturday and the match is Tuesday, you have two full days to get back on track — water, normal eating, a walk. The scales will come back down. If the match is on a Wednesday and you go out Saturday night, you have even more runway. Use it sensibly, not as an excuse to write the whole week off.
           </p>
         </div>
       </section>

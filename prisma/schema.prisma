@@ -79,6 +79,7 @@ model MealLog {
   mealName    String
   description String?
   calories    Int?
+  proteinG    Int?
   budget      Float?
   rating      Int?     // 1-5
   notes       String?
