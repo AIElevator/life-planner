@@ -55,7 +55,7 @@ export default async function HomePage() {
           </h1>
 
           <p style={{ fontSize: '1.125rem', color: 'rgba(167,243,208,0.8)', lineHeight: '1.7', marginBottom: '40px', maxWidth: '540px', marginLeft: 'auto', marginRight: 'auto' }}>
-            AI meal planning and food tracking built for <strong style={{ color: '#6ee7b7', fontWeight: 600 }}>ManvFat members</strong>. Log meals, share your diary with your club owner, and make weight loss stick.
+            AI meal planning and food tracking built for <strong style={{ color: '#6ee7b7', fontWeight: 600 }}>ManvFat members</strong>. Log meals, share your tracker with your Club Manager, and make weight loss stick.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center', marginBottom: '32px' }}>
@@ -71,7 +71,7 @@ export default async function HomePage() {
 
           {/* Feature pills */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', marginTop: '48px', paddingTop: '40px', borderTop: '1px solid rgba(52,211,153,0.15)' }}>
-            {['25 healthy recipes', '7pm WhatsApp reminders', '12 home workouts', 'AI meal suggestions'].map((item) => (
+            {['25 healthy recipes', '7pm WhatsApp reminders', '12 home workouts without equipment', 'AI meal suggestions'].map((item) => (
               <span key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.2)', color: '#6ee7b7', padding: '6px 14px', borderRadius: '9999px', fontSize: '0.8125rem', fontWeight: 500 }}>
                 <CheckCircle className="h-3.5 w-3.5 text-emerald-500" />
                 {item}
@@ -87,14 +87,14 @@ export default async function HomePage() {
           <div style={{ borderRadius: '24px', background: 'linear-gradient(135deg, #059669, #0d9488)', padding: '40px 48px', color: 'white', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '32px' }}>
             <div style={{ maxWidth: '480px' }}>
               <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#a7f3d0', marginBottom: '12px' }}>Built for ManvFat</p>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '12px' }}>Share your food diary in one tap</h2>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '12px' }}>Share your food tracker in one tap</h2>
               <p style={{ color: 'rgba(236,253,245,0.85)', lineHeight: 1.65, fontSize: '0.9375rem' }}>
-                Generate a shareable link to your week&apos;s food diary and paste it straight into WhatsApp for your club owner — no screenshots, no faff.
+                Generate a shareable link to your week&apos;s food tracker and paste it straight into WhatsApp for your Club Manager — no screenshots, no faff.
               </p>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '20px', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', margin: '0 auto 8px' }}>📋</div>
-              <p style={{ fontSize: '0.875rem', color: '#a7f3d0', fontWeight: 500 }}>Weekly diary link</p>
+              <p style={{ fontSize: '0.875rem', color: '#a7f3d0', fontWeight: 500 }}>Weekly tracker link</p>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default async function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
             {[
               { icon: Sparkles, colour: '#7c3aed', bg: '#f5f3ff', title: 'AI meal suggestions', description: "Tell Claude who's eating, your budget, and preferences — get tailored meal ideas in seconds." },
-              { icon: UtensilsCrossed, colour: '#059669', bg: '#ecfdf5', title: 'Recipe library & diary', description: '25 healthy recipes to browse. Log meals with calories, cost, and ratings in seconds.' },
+              { icon: UtensilsCrossed, colour: '#059669', bg: '#ecfdf5', title: 'Recipe library & food tracker', description: '25 easy, healthy recipes to browse and log. Track meals with calories, cost and ratings.' },
               { icon: Scale, colour: '#2563eb', bg: '#eff6ff', title: 'Weekly weigh-in', description: "Log your weight each week and see your progress at a glance. See exactly how far you've come." },
               { icon: Zap, colour: '#d97706', bg: '#fffbeb', title: 'Home workouts', description: '12 no-equipment exercises with step-by-step guidance and three ready-made workout plans.' },
               { icon: BookOpen, colour: '#0891b2', bg: '#ecfeff', title: 'Evidence-based advice', description: 'Science-backed guide covering nutrition, supplements that work, and what to avoid.' },
@@ -135,8 +135,8 @@ export default async function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '32px', textAlign: 'center' }}>
             {[
               { step: '1', title: 'Create your account', desc: 'Sign up free, add your family, and set food preferences.', icon: Users },
-              { step: '2', title: 'Log your meals', desc: 'Track daily meals. Get WhatsApp reminders so you never forget.', icon: UtensilsCrossed },
-              { step: '3', title: 'Share & win', desc: 'Send your weekly ManvFat diary link straight to your club owner.', icon: TrendingUp },
+              { step: '2', title: 'Log your meals', desc: 'Log meals daily from our recipe library. Get WhatsApp reminders so you never miss a day.', icon: UtensilsCrossed },
+              { step: '3', title: 'Share & win', desc: 'Send your weekly ManvFat tracker link straight to your Club Manager.', icon: TrendingUp },
             ].map(({ step, title, desc, icon: Icon }) => (
               <div key={step}>
                 <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', boxShadow: '0 4px 12px rgba(5,150,105,0.25)' }}>

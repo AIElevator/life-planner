@@ -77,10 +77,10 @@ export default async function MealsPage({
       <Card>
         <CardHeader>
           <CardTitle className="text-base flex items-center gap-2">
-            🍽️ Healthy recipe library
+            🍽️ Easy & healthy recipe library
             <span className="text-xs font-normal text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">25 meals</span>
           </CardTitle>
-          <p className="text-sm text-gray-500 mt-0.5">Browse, read the recipe, then tap &quot;Log this meal&quot; to record it.</p>
+          <p className="text-sm text-gray-500 mt-0.5">Browse 25 easy, healthy recipes then tap &quot;Log this meal&quot; to record it.</p>
         </CardHeader>
         <CardContent>
           <RecipeLibrary />
@@ -92,10 +92,10 @@ export default async function MealsPage({
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
             <h2 className="font-semibold flex items-center gap-2">
-              📋 Share your food diary
+              📋 Share your food tracker
             </h2>
             <p className="text-emerald-100 text-sm mt-0.5">
-              Generate a link to this week&apos;s diary — paste it straight into WhatsApp for your ManvFat club owner.
+              Generate a link to this week&apos;s tracker — paste it straight into WhatsApp for your ManvFat Club Manager.
             </p>
           </div>
           <ShareDiaryButton weekDate={thisWeekStart} />
