@@ -395,7 +395,7 @@ const bakedSalmonRoastedVeg: LibraryMeal = {
     'Push veg to the sides and place salmon on the tray. Bake for a further 12–15 minutes.',
     'Serve salmon on the veg with a wedge of lemon.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80',
+  imageUrl: '/images/recipes/salmon-roasted-veg.png',
 }
 
 const chickenTikkaMasala: LibraryMeal = {
