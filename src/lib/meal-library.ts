@@ -212,7 +212,7 @@ const chickenCaesarWrap: LibraryMeal = {
     'Season with black pepper.',
     'Fold in the sides and roll up firmly. Slice in half to serve.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1551248429-40975aa4de74?w=600&q=80',
+  imageUrl: '/images/recipes/chicken-caesar-wrap.webp',
 }
 
 const tunaJacketPotato: LibraryMeal = {
