@@ -43,11 +43,6 @@ export default async function HomePage() {
       <section style={{ background: 'linear-gradient(160deg, #022c22 0%, #064e3b 50%, #0f766e 100%)', paddingTop: '120px', paddingBottom: '80px' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-700/60 bg-emerald-900/60 px-4 py-1.5 text-sm font-medium text-emerald-300 mb-8">
-            <Sparkles className="h-3.5 w-3.5" />
-            Powered by Claude AI
-          </div>
-
           <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontWeight: '900', lineHeight: '1.1', letterSpacing: '-0.02em', color: 'white', marginBottom: '24px' }}>
             Lose weight.<br />
             <span style={{ color: '#6ee7b7' }}>Build habits.</span><br />
@@ -174,7 +169,7 @@ export default async function HomePage() {
             </div>
             <span style={{ fontWeight: 600, color: '#6ee7b7', fontSize: '0.875rem' }}>Life Planner</span>
           </div>
-          <p style={{ fontSize: '0.875rem', color: '#065f46' }}>Built with Claude AI · Made for men who mean business</p>
+          <p style={{ fontSize: '0.875rem', color: '#065f46' }}>Made for men who mean business</p>
         </div>
       </footer>
     </main>

@@ -2,13 +2,16 @@
 
 import { useActionState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { login } from '@/actions/auth'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { UtensilsCrossed, ArrowRight, Loader2 } from 'lucide-react'
+import { UtensilsCrossed, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react'
 
 export default function LoginPage() {
   const [state, action, pending] = useActionState(login, undefined)
+  const searchParams = useSearchParams()
+  const passwordReset = searchParams.get('reset') === '1'
 
   return (
     <main className="flex min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50/30">
@@ -53,7 +56,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <p className="text-sm text-emerald-300">Powered by Claude AI</p>
+          <p className="text-sm text-emerald-300">Free to use · No credit card needed</p>
         </div>
       </div>
 
@@ -74,6 +77,13 @@ export default function LoginPage() {
           </div>
 
           <form action={action} className="space-y-4">
+            {passwordReset && (
+              <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                <CheckCircle2 className="h-4 w-4 shrink-0" />
+                Password updated successfully — sign in with your new password.
+              </div>
+            )}
+
             {state?.message && (
               <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
                 {state.message}
@@ -96,9 +106,17 @@ export default function LoginPage() {
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
-                Password
-              </Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+                  Password
+                </Label>
+                <Link
+                  href="/forgot-password"
+                  className="text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+                >
+                  Forgot password?
+                </Link>
+              </div>
               <Input
                 id="password"
                 name="password"

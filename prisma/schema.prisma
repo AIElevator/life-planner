@@ -22,7 +22,8 @@ model User {
   mealPlans       MealPlan[]
   exerciseLogs    ExerciseLog[]
   foodPreferences FoodPreference[]
-  diaryShares     DiaryShare[]
+  diaryShares          DiaryShare[]
+  passwordResetTokens  PasswordResetToken[]
 }
 
 model FamilyMember {
@@ -93,6 +94,17 @@ model ExerciseLog {
   notes           String?
   intensity       String?  // "low", "moderate", "high"
   createdAt       DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  token     String    @unique
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

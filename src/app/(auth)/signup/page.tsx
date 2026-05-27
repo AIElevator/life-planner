@@ -67,7 +67,7 @@ export default function SignupPage() {
             </ul>
           </div>
 
-          <p className="text-sm text-emerald-300">Free to use · Powered by Claude AI</p>
+          <p className="text-sm text-emerald-300">Free to use · No credit card needed</p>
         </div>
       </div>
 
