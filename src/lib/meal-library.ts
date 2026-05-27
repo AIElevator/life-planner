@@ -240,7 +240,7 @@ const tunaJacketPotato: LibraryMeal = {
     'Mix drained tuna with sweetcorn, mayo, and a squeeze of lemon. Season well.',
     'Split the potato open, fluff the insides, and load with the tuna mix.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80',
+  imageUrl: '/images/recipes/tuna-jacket-potato.webp',
 }
 
 const prawnStirFryNoodles: LibraryMeal = {
@@ -662,7 +662,7 @@ const cottageCheeseCucumber: LibraryMeal = {
     'Season with black pepper and optional chilli flakes.',
     'Serve cucumber on the side for dipping.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1571167530149-c1105da4e2e0?w=600&q=80',
+  imageUrl: '/images/recipes/cottage-cheese-cucumber.webp',
 }
 
 const mixedNutsBanana: LibraryMeal = {
