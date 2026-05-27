@@ -326,6 +326,122 @@ export default function AdvicePage() {
         </div>
       </section>
 
+      {/* Match day eating */}
+      <section id="match-day" className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            ⚽ Match day eating
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">How to weigh in well, fuel the match and recover properly.</p>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-blue-800 text-sm">How ManvFat match day actually works</p>
+          <p className="text-sm text-blue-700 leading-relaxed">
+            The official weigh-in happens at the ground, immediately before the match. That means most
+            players eat light during the day to keep the scales down, then have roughly 30 minutes
+            between weigh-in and kick-off to fuel up. That window is critical. Get this right and you&apos;ll
+            play better and recover faster.
+          </p>
+        </div>
+
+        {/* Phase 1 */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <div className="flex items-center gap-3">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">1</span>
+            <h3 className="font-semibold text-gray-900">During the day: eat light and low-sodium</h3>
+          </div>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Until after the weigh-in, keep portions modest and sodium low. Salt causes your body to retain
+            water — crisps, takeaways, processed food and ready meals are the main culprits. The night before
+            matters too.
+          </p>
+          <ul className="text-sm text-gray-500 space-y-1.5">
+            <li className="flex items-start gap-2"><span className="text-red-400 shrink-0 mt-0.5">✗</span> Heavy meals — food and drink literally weigh something on the scales</li>
+            <li className="flex items-start gap-2"><span className="text-red-400 shrink-0 mt-0.5">✗</span> Salty food — causes 0.5–1 kg of water retention that has nothing to do with fat</li>
+            <li className="flex items-start gap-2"><span className="text-red-400 shrink-0 mt-0.5">✗</span> Alcohol the night before — inflammation, water retention, poor sleep</li>
+          </ul>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Good daytime choices: Greek yoghurt and fruit, a light chicken wrap or salad, plenty of water,
+            tea and coffee. Enough to function, nothing that piles on temporary scale weight.
+          </p>
+        </div>
+
+        {/* Phase 2 — most important */}
+        <div className="bg-white rounded-2xl border border-blue-100 p-5 space-y-3">
+          <div className="flex items-center gap-3">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-700">2</span>
+            <h3 className="font-semibold text-gray-900">Immediately after weigh-in: rapid energy snacks</h3>
+          </div>
+          <div className="rounded-lg bg-blue-50 border border-blue-100 px-4 py-3 text-sm text-blue-800 font-medium">
+            ⏱ You have about 30 minutes before kick-off. These need to be portable and eaten at the ground.
+          </div>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Your goal is fast-releasing carbohydrates that hit the bloodstream quickly. You want your blood
+            sugar up for the first whistle, not still waiting in your stomach. Keep it small — you don&apos;t
+            want anything sitting heavily when you start running.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              { food: 'Banana', why: 'The best single option. Fast carbs, potassium to help prevent cramp, easy to eat anywhere. Bring one in your kit bag.' },
+              { food: 'Jelly babies or wine gums', why: 'Pure fast sugar — hits the blood in minutes. Three to four sweets is enough, not the whole bag.' },
+              { food: 'Small carton of orange juice', why: 'Fast glucose and vitamin C. Easy to bring, done in 30 seconds.' },
+              { food: 'Rice cakes', why: 'Light, portable, fast carbs with minimal stomach bulk. Two or three is plenty.' },
+              { food: 'Energy gel', why: 'Designed for exactly this — 30 minutes before exercise. One gel, chase with water.' },
+              { food: 'Handful of dates', why: 'Very high natural sugar content, portable, and no wrapper to deal with.' },
+            ].map(({ food, why }) => (
+              <div key={food} className="rounded-xl bg-blue-50 border border-blue-100 p-3">
+                <p className="text-sm font-semibold text-blue-900">{food}</p>
+                <p className="text-xs text-blue-700 mt-0.5 leading-relaxed">{why}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Keep one or two of these in your kit bag every week. Going into a match with low blood sugar
+            after eating light all day will hurt your performance in the first 20 minutes.
+          </p>
+        </div>
+
+        {/* Phase 3 */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <div className="flex items-center gap-3">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">3</span>
+            <h3 className="font-semibold text-gray-900">After the match: recover and refuel</h3>
+          </div>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            An hour of five-a-side burns 600–900 kcal. The weigh-in is done, you&apos;ve earned it. Get protein
+            and carbohydrates in within 45 minutes of the final whistle to aid recovery and stop the
+            post-match hunger from turning into a binge.
+          </p>
+          <div className="rounded-lg bg-emerald-50 border border-emerald-100 px-4 py-3 text-sm text-emerald-700 font-medium">
+            📊 60–90 mins of football at 85–95 kg ≈ 600–900 kcal burned
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              { food: 'Chicken and rice', why: 'The classic recovery meal — 40–50g protein, fast carbs to refill glycogen.' },
+              { food: 'Pasta with lean beef mince', why: 'Turkey Bolognese from the recipe library is ideal here. High carb, high protein.' },
+              { food: 'Big chicken wrap with salad', why: 'Quick to make on the way home. Portable if eating at the ground.' },
+              { food: 'Protein shake and banana', why: 'If you\'re not ready for a full meal yet — gets protein and fast carbs in quickly.' },
+              { food: 'Beans on toast with cheese', why: 'Cheap, fast, around 30g protein. Better recovery meal than most people think.' },
+              { food: 'Jacket potato with tuna and cheese', why: 'High satiety, excellent protein and carb balance. Good for a hungrier evening.' },
+            ].map(({ food, why }) => (
+              <div key={food} className="rounded-xl bg-emerald-50 border border-emerald-100 p-3">
+                <p className="text-sm font-semibold text-emerald-900">{food}</p>
+                <p className="text-xs text-emerald-700 mt-0.5 leading-relaxed">{why}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-50 rounded-2xl border border-gray-100 p-4">
+          <p className="text-xs text-gray-500 leading-relaxed">
+            <strong className="text-gray-700">The one thing to take away:</strong> pack a banana in your kit bag every match day.
+            Eating light all day is fine — but going into the first whistle with low blood sugar is not. Thirty seconds
+            of prep before you leave the house makes a real difference to how you play.
+          </p>
+        </div>
+      </section>
+
       {/* Weigh-in prep */}
       <section id="weigh-in" className="space-y-4">
         <div>

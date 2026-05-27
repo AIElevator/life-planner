@@ -252,31 +252,87 @@ export default async function DashboardPage() {
 
       {/* ── Match day card ────────────────────────────────────────── */}
       {isMatchDay && (
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-5 text-white">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-5 text-white space-y-4">
           <div className="pointer-events-none absolute -top-8 -right-8 w-36 h-36 rounded-full bg-white/5" />
-          <div className="relative flex items-start gap-4">
-            <span className="text-3xl shrink-0 mt-0.5">⚽</span>
-            <div className="space-y-1.5">
-              <p className="font-bold text-base">Match day! You&apos;re burning more today.</p>
-              <p className="text-blue-100 text-sm leading-relaxed">
-                An hour of five-a-side burns 600–900 kcal. You can eat more today and still be in deficit.
-                Load up on carbs before kick-off — rice, pasta, or a big sandwich work well.
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                <Link
-                  href="/meals?suggest=1&type=lunch"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold hover:bg-white/25 transition-colors border border-white/20"
-                >
-                  <Sparkles className="h-3.5 w-3.5" /> Pre-match meal idea
-                </Link>
-                <Link
-                  href="/exercise?log=1"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold hover:bg-white/25 transition-colors border border-white/20"
-                >
-                  <Dumbbell className="h-3.5 w-3.5" /> Log the match
-                </Link>
-              </div>
+          <div className="relative flex items-center gap-3">
+            <span className="text-2xl">⚽</span>
+            <div>
+              <p className="font-bold text-base leading-tight">Match day.</p>
+              <p className="text-blue-200 text-xs mt-0.5">Eat light today → weigh in → rapid energy snacks → play.</p>
             </div>
+          </div>
+
+          <div className="relative grid sm:grid-cols-3 gap-3">
+
+            {/* Phase 1 */}
+            <div className="rounded-xl bg-white/10 border border-white/15 p-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px] font-bold">1</span>
+                <p className="text-xs font-bold text-white uppercase tracking-wide">All day: eat light</p>
+              </div>
+              <p className="text-xs text-blue-100 leading-relaxed">
+                Keep sodium and portion size down until after weigh-in. Salt and heavy food both
+                add temporary scale weight that has nothing to do with fat.
+              </p>
+              <ul className="text-xs text-blue-100 space-y-0.5">
+                <li>🫙 Greek yoghurt and fruit</li>
+                <li>🥗 Light salad or chicken wrap</li>
+                <li>☕ Tea and coffee are fine</li>
+              </ul>
+            </div>
+
+            {/* Phase 2 — the critical one */}
+            <div className="rounded-xl bg-yellow-400/20 border border-yellow-300/30 p-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-yellow-300/30 text-[10px] font-bold">2</span>
+                <p className="text-xs font-bold text-yellow-200 uppercase tracking-wide">After weigh-in: fuel up</p>
+              </div>
+              <p className="text-xs text-blue-100 leading-relaxed">
+                Weigh-in done. You have roughly 30 minutes before kick-off. Eat something
+                fast-releasing — portable, no cooking needed, hits the blood quickly.
+              </p>
+              <ul className="text-xs text-blue-100 space-y-0.5">
+                <li>🍌 Banana (the best option)</li>
+                <li>🍬 Jelly babies or energy sweets</li>
+                <li>🍚 Rice cakes</li>
+                <li>🍊 Small carton of orange juice</li>
+                <li>⚡ Energy gel if you have one</li>
+              </ul>
+            </div>
+
+            {/* Phase 3 */}
+            <div className="rounded-xl bg-white/10 border border-white/15 p-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px] font-bold">3</span>
+                <p className="text-xs font-bold text-white uppercase tracking-wide">After the match: recover</p>
+              </div>
+              <p className="text-xs text-blue-100 leading-relaxed">
+                You&apos;ve burned 600–900 kcal. Get protein and carbs in within 45 minutes
+                of the final whistle.
+              </p>
+              <ul className="text-xs text-blue-100 space-y-0.5">
+                <li>🍗 Chicken and rice</li>
+                <li>🍝 Pasta with lean mince</li>
+                <li>🥙 Big chicken wrap</li>
+                <li>🥛 Protein shake + banana</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="relative flex flex-wrap gap-2">
+            <Link
+              href="/advice#match-day"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold hover:bg-white/25 transition-colors border border-white/20"
+            >
+              Full match day guide →
+            </Link>
+            <Link
+              href="/exercise?log=1"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold hover:bg-white/25 transition-colors border border-white/20"
+            >
+              <Dumbbell className="h-3.5 w-3.5" /> Log the match
+            </Link>
           </div>
         </div>
       )}
