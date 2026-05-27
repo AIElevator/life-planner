@@ -265,6 +265,142 @@ export default function AdvicePage() {
         </div>
       </section>
 
+      {/* Hydration */}
+      <section id="hydration" className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            <Droplets className="h-5 w-5 text-cyan-500" />
+            Hydration
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">Most men are mildly dehydrated most of the time and have no idea.</p>
+        </div>
+
+        <div className="bg-cyan-50 border border-cyan-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-cyan-800 text-sm">Why it matters more than you think</p>
+          <p className="text-sm text-cyan-700 leading-relaxed">
+            A 1–2% drop in hydration reduces physical performance by around 10% and cognitive performance
+            by a similar amount. At 90 kg, that&apos;s just 900 ml of fluid — less than two pints. By the time
+            you feel thirsty, you&apos;re already there. Mild dehydration also causes fatigue, headaches and,
+            critically for weight loss, your brain often misreads thirst as hunger.
+          </p>
+          <div className="rounded-lg bg-cyan-100 text-cyan-800 px-3 py-2 text-xs font-medium">
+            📊 2% dehydration ≈ 10% drop in physical and mental performance
+          </div>
+        </div>
+
+        {/* Daily targets */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm">Daily targets</h3>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { label: 'Sedentary day', target: '2–2.5 litres', note: 'Office, sitting around, not much movement' },
+              { label: 'Active day', target: '3–3.5 litres', note: 'Walking, manual work, hot weather' },
+              { label: 'Match day', target: '3.5–4+ litres', note: 'Include extra before, during and after football' },
+            ].map(({ label, target, note }) => (
+              <div key={label} className="rounded-xl bg-cyan-50 border border-cyan-100 p-4 text-center space-y-1">
+                <p className="text-lg font-bold text-cyan-700">{target}</p>
+                <p className="text-xs font-semibold text-cyan-800">{label}</p>
+                <p className="text-[10px] text-cyan-600">{note}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400">
+            Tea, coffee and milk all count towards your daily fluid intake. The diuretic effect of caffeine
+            is mild and well below the fluid it brings in. Alcohol does not count — it is net dehydrating.
+          </p>
+        </div>
+
+        {/* How to actually hit the target */}
+        <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+          <h3 className="font-semibold text-gray-900 text-sm">How to actually hit the target every day</h3>
+          <div className="space-y-2">
+            {[
+              { tip: 'Start the morning with 500 ml', detail: 'You wake up dehydrated after 7–8 hours without fluids. A pint of water before your coffee is the single easiest habit to build.' },
+              { tip: 'Keep a litre bottle on your desk', detail: 'Visual reminder + easy to track. Finish one before lunch, one before leaving work. You\'re most of the way there.' },
+              { tip: 'Check your urine colour', detail: 'Pale straw yellow = well hydrated. Dark yellow = drink more. Clear = overdoing it slightly, which is fine. This is the most honest daily check available.' },
+              { tip: '500 ml before each main meal', detail: 'Fills the stomach, reduces appetite, helps digestion. 30 minutes before is ideal but even immediately before makes a difference.' },
+              { tip: 'Don\'t wait for thirst', detail: 'Thirst is a late signal. By the time your mouth is dry, you\'ve already had a performance drop. Drink on a schedule, not on demand.' },
+            ].map(({ tip, detail }) => (
+              <div key={tip} className="flex items-start gap-3 py-2.5 border-b border-gray-50 last:border-0">
+                <span className="text-cyan-500 shrink-0 mt-0.5 font-bold text-sm">💧</span>
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">{tip}</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Football hydration */}
+        <div className="bg-white rounded-2xl border border-blue-100 p-5 space-y-4">
+          <h3 className="font-semibold text-gray-900 text-sm flex items-center gap-2">
+            ⚽ Hydration around football
+          </h3>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Most ManvFat players eat light all day before weigh-in but still drink water through the day — which
+            is exactly right. Water doesn&apos;t linger on the scales the way food does, and going into the match
+            dehydrated is a guaranteed way to cramp up, fade badly in the second half and feel rough afterwards.
+          </p>
+
+          <div className="space-y-3">
+            {/* Before */}
+            <div className="rounded-xl bg-gray-50 border border-gray-100 p-4 space-y-1.5">
+              <p className="text-xs font-bold text-gray-700 uppercase tracking-wide">During the day (before weigh-in)</p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Drink normally throughout the day — two to three litres as usual. Water doesn&apos;t add the
+                same scale weight as food. Being well hydrated going into weigh-in is far better than
+                being dehydrated and then struggling through a match.
+              </p>
+              <p className="text-xs text-gray-400">Avoid fizzy drinks before the match — bloating is real and uncomfortable when you start running.</p>
+            </div>
+
+            {/* After weigh-in */}
+            <div className="rounded-xl bg-blue-50 border border-blue-100 p-4 space-y-1.5">
+              <p className="text-xs font-bold text-blue-700 uppercase tracking-wide">After weigh-in — right before kick-off</p>
+              <p className="text-sm text-blue-700 leading-relaxed">
+                The weigh-in is done. Drink 400–600 ml of water now. If you have a sports drink (Lucozade Sport,
+                High5, Torq etc.), this is the moment to use it — the electrolytes and fast carbs together
+                are ideal pre-match. If not, water and your banana or jelly babies does the same job.
+              </p>
+            </div>
+
+            {/* Half-time */}
+            <div className="rounded-xl bg-gray-50 border border-gray-100 p-4 space-y-1.5">
+              <p className="text-xs font-bold text-gray-700 uppercase tracking-wide">Half-time</p>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                200–400 ml of water or a sports drink. Don&apos;t wait until you feel thirsty — you won&apos;t
+                absorb it quickly enough to help before the second half starts. Drink as soon as the
+                whistle goes. If the match is more than 60 minutes, this matters more.
+              </p>
+              <p className="text-xs text-gray-400">
+                Cramp is usually caused by a combination of fatigue, heat and electrolyte imbalance — not
+                just dehydration alone. But staying hydrated significantly reduces the risk.
+              </p>
+            </div>
+
+            {/* Post-match */}
+            <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-4 space-y-1.5">
+              <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Post-match recovery</p>
+              <p className="text-sm text-emerald-700 leading-relaxed">
+                You&apos;ll lose around 0.5–1.5 litres of fluid during a match depending on intensity and temperature.
+                Replace it with 1.5× what you lost — so roughly 750 ml to 2 litres after the match, spread over
+                the next couple of hours. A recovery meal with plenty of fluid handles most of this naturally.
+              </p>
+              <p className="text-xs text-emerald-600 font-medium mt-1">
+                If you&apos;re going to the pub after the match: have a pint of water before your first beer. You&apos;ll drink less, feel better in the morning and the deficit you earned on the pitch won&apos;t get undone.
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-3 text-xs text-amber-700">
+            <strong>Signs you went into the match dehydrated:</strong> early cramping, headache by second half,
+            unusual fatigue in the final 20 minutes, feeling groggy for an hour afterwards. These are fixable
+            with better daily hydration before the next match day.
+          </div>
+        </div>
+      </section>
+
       {/* Supplements */}
       <section className="space-y-4">
         <div>

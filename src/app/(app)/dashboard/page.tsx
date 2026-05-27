@@ -268,16 +268,17 @@ export default async function DashboardPage() {
             <div className="rounded-xl bg-white/10 border border-white/15 p-4 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-[10px] font-bold">1</span>
-                <p className="text-xs font-bold text-white uppercase tracking-wide">All day: eat light</p>
+                <p className="text-xs font-bold text-white uppercase tracking-wide">All day: eat light, drink plenty</p>
               </div>
               <p className="text-xs text-blue-100 leading-relaxed">
-                Keep sodium and portion size down until after weigh-in. Salt and heavy food both
-                add temporary scale weight that has nothing to do with fat.
+                Keep sodium and portions down — but keep drinking water. Dehydration tanks your
+                performance in the first 20 minutes. Water doesn&apos;t linger on the scales like food.
               </p>
               <ul className="text-xs text-blue-100 space-y-0.5">
+                <li>💧 2–3 litres of water through the day</li>
                 <li>🫙 Greek yoghurt and fruit</li>
                 <li>🥗 Light salad or chicken wrap</li>
-                <li>☕ Tea and coffee are fine</li>
+                <li>☕ Tea and coffee count too</li>
               </ul>
             </div>
 
@@ -292,10 +293,11 @@ export default async function DashboardPage() {
                 fast-releasing — portable, no cooking needed, hits the blood quickly.
               </p>
               <ul className="text-xs text-blue-100 space-y-0.5">
+                <li>💧 400–600 ml water first</li>
                 <li>🍌 Banana (the best option)</li>
                 <li>🍬 Jelly babies or energy sweets</li>
                 <li>🍚 Rice cakes</li>
-                <li>🍊 Small carton of orange juice</li>
+                <li>🍊 Small OJ or sports drink</li>
                 <li>⚡ Energy gel if you have one</li>
               </ul>
             </div>
