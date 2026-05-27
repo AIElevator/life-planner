@@ -14,21 +14,19 @@ import {
   Sparkles,
   Zap,
   BookOpen,
-  ClipboardList,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { logout } from '@/actions/auth'
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/tasks',     label: 'Tasks',     icon: ClipboardList },
-  { href: '/meals',     label: 'Meals',     icon: UtensilsCrossed },
-  { href: '/exercise',  label: 'Exercise',  icon: Dumbbell },
-  { href: '/workouts',  label: 'Workouts',  icon: Zap },
-  { href: '/advice',    label: 'Advice',    icon: BookOpen },
+  { href: '/meals', label: 'Meals', icon: UtensilsCrossed },
+  { href: '/exercise', label: 'Exercise', icon: Dumbbell },
+  { href: '/workouts', label: 'Workouts', icon: Zap },
+  { href: '/advice', label: 'Advice', icon: BookOpen },
   { href: '/preferences', label: 'Preferences', icon: Heart },
-  { href: '/family',    label: 'Family',    icon: Users },
-  { href: '/settings',  label: 'Settings',  icon: Settings },
+  { href: '/family', label: 'Family', icon: Users },
+  { href: '/settings', label: 'Settings', icon: Settings },
 ]
 
 export function Sidebar({ userName }: { userName: string | null }) {
