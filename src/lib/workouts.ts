@@ -244,6 +244,7 @@ export const exercises: Exercise[] = [
       'Repeat for reps',
     ],
     tips: ['Brilliant for men with lower back issues or who sit at a desk all day', 'Don\'t strain your neck — look at the floor', 'Builds the posterior chain which most desk workers neglect'],
+    imageUrl: '/images/exercises/superman-hold.webp',
   },
   {
     id: 'wall-sit',
