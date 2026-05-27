@@ -457,7 +457,7 @@ const beefChilli: LibraryMeal = {
     'Pour in tomatoes and kidney beans. Simmer for 25 minutes.',
     'Season well. Serve with rice, a baked potato, or flatbread.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80',
+  imageUrl: '/images/recipes/beef-chilli.webp',
 }
 
 const prawnVegStirFry: LibraryMeal = {
@@ -488,7 +488,7 @@ const prawnVegStirFry: LibraryMeal = {
     'Pour in soy sauce and oyster sauce. Toss to coat.',
     'Drizzle with sesame oil and serve over jasmine rice.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=80',
+  imageUrl: '/images/recipes/prawn-veg-stir-fry.webp',
 }
 
 const cottagePieSweetPotato: LibraryMeal = {
