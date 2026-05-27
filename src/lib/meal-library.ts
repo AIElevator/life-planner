@@ -519,7 +519,7 @@ const cottagePieSweetPotato: LibraryMeal = {
     'Pour mince into a baking dish. Top with sweet potato mash and rough up with a fork.',
     'Bake at 200°C for 20 minutes until golden on top.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80',
+  imageUrl: '/images/recipes/cottage-pie-sweet-potato.webp',
 }
 
 const chickenChorizo: LibraryMeal = {
@@ -550,7 +550,7 @@ const chickenChorizo: LibraryMeal = {
     'Pour in tomatoes. Simmer for 15 minutes.',
     'Toss with drained pasta and scatter parsley.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80',
+  imageUrl: '/images/recipes/chicken-chorizo-pasta.webp',
 }
 
 const lemonHerbChicken: LibraryMeal = {
@@ -581,7 +581,7 @@ const lemonHerbChicken: LibraryMeal = {
     'Coat chicken in remaining mixture. Add to the tray and roast for a further 22–25 minutes.',
     'Rest the chicken for 5 minutes before serving.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c8?w=600&q=80',
+  imageUrl: '/images/recipes/lemon-herb-chicken.webp',
 }
 
 const vegChickpeaCurry: LibraryMeal = {
