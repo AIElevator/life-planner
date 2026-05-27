@@ -11,7 +11,7 @@ export type LibraryMeal = {
   description: string
   ingredients: string[]
   steps: string[]
-  imageUrl: string
+  imageUrl?: string
 }
 
 // ─── BREAKFAST (6) ────────────────────────────────────────────────────────────
@@ -735,6 +735,703 @@ const boiledEggs: LibraryMeal = {
   imageUrl: '/images/recipes/boiled-eggs.webp',
 }
 
+// ─── BREAKFAST ADDITIONS ──────────────────────────────────────────────────────
+
+const breakfastBurrito: LibraryMeal = {
+  id: 'breakfast-burrito',
+  name: 'Breakfast Burrito',
+  emoji: '🌯',
+  mealType: 'breakfast',
+  calories: 480,
+  proteinG: 32,
+  prepMinutes: 15,
+  costGBP: 1.80,
+  tags: ['high-protein', 'quick', 'ManvFat-friendly'],
+  description: 'Scrambled eggs, bacon and beans wrapped in a warm tortilla. Proper fuel before a busy morning.',
+  ingredients: [
+    '2 large eggs',
+    '2 rashers of lean back bacon',
+    '3 tbsp tinned baked beans',
+    '1 large flour tortilla',
+    '30g reduced-fat cheddar, grated',
+    'Splash of hot sauce (optional)',
+  ],
+  steps: [
+    'Grill or dry-fry the bacon until crispy. Chop into small pieces.',
+    'Scramble the eggs in a non-stick pan over medium heat. Remove from heat while still slightly soft.',
+    'Warm the beans in a small pan or microwave for 60 seconds.',
+    'Warm the tortilla in a dry pan for 30 seconds each side.',
+    'Lay eggs, bacon, beans and cheese in the centre of the tortilla.',
+    'Add a dash of hot sauce if using, then fold in the sides and roll tightly.',
+  ],
+}
+
+const appleCrumbleOvernightOats: LibraryMeal = {
+  id: 'apple-crumble-overnight-oats',
+  name: 'Apple Crumble Overnight Oats',
+  emoji: '🍎',
+  mealType: 'breakfast',
+  calories: 360,
+  proteinG: 15,
+  prepMinutes: 5,
+  costGBP: 0.85,
+  tags: ['batch-cook', 'high-fibre', 'under-500-kcal', 'ManvFat-friendly'],
+  description: 'Tastes like pudding. Costs less than a pound. Mix it the night before and grab it on the way out.',
+  ingredients: [
+    '80g rolled oats',
+    '200ml semi-skimmed milk',
+    '100g Greek yoghurt',
+    '1 apple, grated',
+    '1 tsp cinnamon',
+    '1 tsp honey',
+    '1 tbsp crushed walnuts or granola',
+  ],
+  steps: [
+    'Stir oats, milk, yoghurt, grated apple and cinnamon together in a jar or container.',
+    'Seal and refrigerate overnight.',
+    'In the morning, top with crushed walnuts or granola and a drizzle of honey.',
+  ],
+}
+
+const eggBhurji: LibraryMeal = {
+  id: 'egg-bhurji',
+  name: 'Spiced Scrambled Eggs',
+  emoji: '🍳',
+  mealType: 'breakfast',
+  calories: 350,
+  proteinG: 26,
+  prepMinutes: 10,
+  costGBP: 1.10,
+  tags: ['high-protein', 'quick', 'under-500-kcal', 'ManvFat-friendly'],
+  description: 'Scrambled eggs with onion, tomato and a bit of spice. A cracking change from plain eggs on toast.',
+  ingredients: [
+    '3 eggs',
+    '½ onion, finely diced',
+    '1 tomato, diced',
+    '½ tsp cumin',
+    '¼ tsp turmeric',
+    '¼ tsp chilli flakes',
+    '1 tsp oil',
+    'Small handful of fresh coriander (optional)',
+    '1 slice wholemeal toast',
+  ],
+  steps: [
+    'Heat oil in a non-stick pan. Fry onion for 2–3 minutes until softened.',
+    'Add tomato, cumin, turmeric and chilli. Cook for another minute.',
+    'Beat eggs and pour in. Stir constantly over medium heat.',
+    'Remove from heat while eggs are still a little soft.',
+    'Scatter over fresh coriander if using. Serve with toast.',
+  ],
+}
+
+const cleanSheetSkillet: LibraryMeal = {
+  id: 'clean-sheet-skillet',
+  name: 'Clean Sheet Skillet',
+  emoji: '🥚',
+  mealType: 'breakfast',
+  calories: 430,
+  proteinG: 34,
+  prepMinutes: 12,
+  costGBP: 1.50,
+  tags: ['high-protein', 'one-pan', 'ManvFat-friendly'],
+  description: 'Eggs baked over spinach, mushrooms and cherry tomatoes in one pan. All the nutrients, barely any washing up.',
+  ingredients: [
+    '3 eggs',
+    '80g chestnut mushrooms, sliced',
+    '50g baby spinach',
+    '6 cherry tomatoes, halved',
+    '1 tsp oil',
+    'Salt and black pepper',
+    '1 slice wholemeal toast',
+  ],
+  steps: [
+    'Heat oil in a small oven-proof frying pan over medium heat.',
+    'Fry mushrooms for 3 minutes until golden. Add tomatoes and spinach, cook until wilted.',
+    'Make three small wells in the veg and crack an egg into each.',
+    'Cover with a lid or foil and cook on low for 4–5 minutes until whites are set.',
+    'Season with salt and pepper. Serve straight from the pan with toast.',
+  ],
+}
+
+const pbBananaToast: LibraryMeal = {
+  id: 'pb-banana-toast',
+  name: 'Peanut Butter & Banana Toast',
+  emoji: '🍞',
+  mealType: 'breakfast',
+  calories: 400,
+  proteinG: 14,
+  prepMinutes: 5,
+  costGBP: 0.70,
+  tags: ['quick', 'budget-friendly', 'under-500-kcal', 'ManvFat-friendly'],
+  description: 'Fast, filling and genuinely tasty. The banana keeps energy levels steady all morning.',
+  ingredients: [
+    '2 slices wholemeal bread',
+    '2 tbsp peanut butter (no added sugar)',
+    '1 banana, sliced',
+    'Pinch of cinnamon',
+  ],
+  steps: [
+    'Toast the bread.',
+    'Spread a generous tablespoon of peanut butter on each slice.',
+    'Layer banana slices on top.',
+    'Dust with cinnamon and eat immediately.',
+  ],
+}
+
+const bananaProteinPancakes: LibraryMeal = {
+  id: 'banana-protein-pancakes',
+  name: 'Banana Protein Pancakes',
+  emoji: '🥞',
+  mealType: 'breakfast',
+  calories: 380,
+  proteinG: 28,
+  prepMinutes: 15,
+  costGBP: 1.20,
+  tags: ['high-protein', 'ManvFat-friendly', 'under-500-kcal'],
+  description: 'Three-ingredient pancakes that actually taste good. High in protein, no flour needed.',
+  ingredients: [
+    '1 ripe banana',
+    '2 eggs',
+    '30g vanilla or unflavoured protein powder',
+    '1 tsp oil',
+    '100g Greek yoghurt and a handful of berries to serve',
+  ],
+  steps: [
+    'Mash the banana thoroughly in a bowl.',
+    'Beat in the eggs and protein powder until smooth. The batter will be thin.',
+    'Heat a little oil in a non-stick pan over medium-low heat.',
+    'Pour in small rounds of batter (about 2 tbsp each). Cook for 2 minutes per side.',
+    'Serve with Greek yoghurt and berries.',
+  ],
+}
+
+// ─── LUNCH ADDITIONS ──────────────────────────────────────────────────────────
+
+const ploughmansBox: LibraryMeal = {
+  id: 'ploughmans-box',
+  name: "Ploughman's Lunchbox",
+  emoji: '🧀',
+  mealType: 'lunch',
+  calories: 420,
+  proteinG: 22,
+  prepMinutes: 5,
+  costGBP: 2.20,
+  tags: ['no-cook', 'batch-cook', 'ManvFat-friendly'],
+  description: 'A proper British classic that needs zero cooking. Quick to assemble, easy to take to work.',
+  ingredients: [
+    '60g reduced-fat cheddar',
+    '2 slices wholemeal bread or 4 oatcakes',
+    '2 slices lean ham',
+    '1 hard-boiled egg',
+    '1 tbsp pickle (Branston)',
+    'Celery sticks and cherry tomatoes to fill the box',
+  ],
+  steps: [
+    'Hard-boil the egg in advance and refrigerate until needed.',
+    'Pack cheese, ham, egg, pickle and veg into a container.',
+    'Add bread or oatcakes in a separate bag to keep them from going soggy.',
+    'Eat at room temperature.',
+  ],
+}
+
+const tunaMeltToastie: LibraryMeal = {
+  id: 'tuna-melt-toastie',
+  name: 'Tuna Melt Toastie',
+  emoji: '🥪',
+  mealType: 'lunch',
+  calories: 450,
+  proteinG: 34,
+  prepMinutes: 10,
+  costGBP: 1.60,
+  tags: ['high-protein', 'quick', 'ManvFat-friendly'],
+  description: 'Melted cheese on tuna mayo in a toastie. One of the most satisfying lunches for under £2.',
+  ingredients: [
+    '1 tin tuna in spring water, drained',
+    '1 tbsp light mayonnaise',
+    '2 slices wholemeal bread',
+    '40g reduced-fat cheddar, grated',
+    '½ tsp Worcestershire sauce',
+    'Sliced tomato (optional)',
+  ],
+  steps: [
+    'Mix tuna, mayo and Worcestershire sauce together.',
+    'Spread onto one slice of bread. Top with tomato (if using) and cheese.',
+    'Put the second slice on top.',
+    'Toast in a sandwich press, dry frying pan or under the grill until golden and melted.',
+  ],
+}
+
+const cajunChickenRiceBowl: LibraryMeal = {
+  id: 'cajun-chicken-rice-bowl',
+  name: 'Cajun Chicken Rice Bowl',
+  emoji: '🍚',
+  mealType: 'lunch',
+  calories: 490,
+  proteinG: 38,
+  prepMinutes: 20,
+  costGBP: 2.20,
+  tags: ['high-protein', 'batch-cook', 'ManvFat-friendly'],
+  description: 'Spiced chicken over rice with sweetcorn and peppers. Batch cook the rice on Sunday and this takes ten minutes all week.',
+  ingredients: [
+    '150g chicken breast, diced',
+    '1 tsp Cajun seasoning',
+    '150g cooked brown rice',
+    '50g tinned sweetcorn',
+    '½ red pepper, sliced',
+    '1 tsp oil',
+    'Squeeze of lime (optional)',
+  ],
+  steps: [
+    'Toss chicken with Cajun seasoning.',
+    'Heat oil in a frying pan over high heat. Cook chicken for 6–8 minutes until cooked through.',
+    'Add pepper strips to the pan for the last 2 minutes.',
+    'Serve over rice with sweetcorn. Squeeze lime over the top if using.',
+  ],
+}
+
+const bigLadChilliPot: LibraryMeal = {
+  id: 'big-lad-chilli-pot',
+  name: 'Big Lad Chilli Pot',
+  emoji: '🍲',
+  mealType: 'lunch',
+  calories: 460,
+  proteinG: 32,
+  prepMinutes: 15,
+  costGBP: 1.80,
+  tags: ['high-protein', 'batch-cook', 'budget-friendly', 'ManvFat-friendly'],
+  description: 'Tinned kidney beans and mince with chilli spices. Cheap, filling and ridiculously easy to batch cook.',
+  ingredients: [
+    '150g lean beef mince (5% fat)',
+    '1 tin kidney beans, drained',
+    '1 tin chopped tomatoes',
+    '1 tsp cumin',
+    '1 tsp smoked paprika',
+    '½ tsp chilli powder',
+    '1 small onion, diced',
+    '1 tsp oil',
+  ],
+  steps: [
+    'Heat oil in a pan. Fry onion for 3 minutes. Add mince and brown for 5 minutes.',
+    'Stir in cumin, paprika and chilli powder. Cook for 1 minute.',
+    'Add tomatoes and kidney beans. Simmer for 10 minutes, stirring occasionally.',
+    'Season with salt and pepper. Serve as is or over rice.',
+  ],
+}
+
+const srirachaChickenSlawWrap: LibraryMeal = {
+  id: 'sriracha-chicken-slaw-wrap',
+  name: 'Sriracha Chicken Slaw Wrap',
+  emoji: '🌯',
+  mealType: 'lunch',
+  calories: 440,
+  proteinG: 33,
+  prepMinutes: 10,
+  costGBP: 2.10,
+  tags: ['high-protein', 'quick', 'ManvFat-friendly'],
+  description: 'Shredded chicken with crunchy slaw and a kick of sriracha. Far better than anything from a meal-deal fridge.',
+  ingredients: [
+    '150g cooked chicken breast, shredded',
+    '2 large flour tortillas',
+    '60g coleslaw (shop-bought)',
+    '1 tbsp light mayo',
+    '1 tsp sriracha sauce',
+    'Handful of iceberg lettuce',
+  ],
+  steps: [
+    'Mix shredded chicken with mayo and sriracha.',
+    'Warm tortillas for 30 seconds in a dry pan.',
+    'Lay lettuce and coleslaw along the centre of each tortilla.',
+    'Top with the chicken mixture, roll tightly and cut in half.',
+  ],
+}
+
+const coronationChickenChickpeaSalad: LibraryMeal = {
+  id: 'coronation-chicken-chickpea-salad',
+  name: 'Coronation Chicken & Chickpea Salad',
+  emoji: '🥗',
+  mealType: 'lunch',
+  calories: 410,
+  proteinG: 30,
+  prepMinutes: 10,
+  costGBP: 2.00,
+  tags: ['high-protein', 'no-cook', 'ManvFat-friendly'],
+  description: 'Curried chicken and chickpeas on a bed of leaves. Sounds fancy, takes ten minutes and keeps well in the fridge.',
+  ingredients: [
+    '150g cooked chicken breast, diced',
+    '100g tinned chickpeas, drained',
+    '2 tbsp light mayo',
+    '1 tsp mild curry powder',
+    '1 tbsp mango chutney',
+    'Handful of mixed leaves',
+    'Sliced cucumber',
+  ],
+  steps: [
+    'Mix mayo, curry powder and mango chutney in a bowl.',
+    'Add chicken and chickpeas. Stir to coat.',
+    'Serve over mixed leaves with sliced cucumber.',
+    'Keeps in the fridge for up to two days.',
+  ],
+}
+
+// ─── DINNER ADDITIONS ─────────────────────────────────────────────────────────
+
+const beefBurgerWedges: LibraryMeal = {
+  id: 'beef-burger-wedges',
+  name: 'Lean Beef Burger & Wedges',
+  emoji: '🍔',
+  mealType: 'dinner',
+  calories: 550,
+  proteinG: 38,
+  prepMinutes: 30,
+  costGBP: 2.80,
+  tags: ['high-protein', 'ManvFat-friendly', 'family-friendly'],
+  description: 'A proper homemade burger with oven wedges. Lean mince keeps the calories under control without sacrificing any of the taste.',
+  ingredients: [
+    '200g lean beef mince (5% fat)',
+    '2 burger buns (wholemeal if available)',
+    '2 medium potatoes, cut into wedges',
+    '1 tsp smoked paprika',
+    '1 tsp oil',
+    'Lettuce, tomato, sliced onion',
+    '1 tbsp ketchup or mustard',
+    'Salt and black pepper',
+  ],
+  steps: [
+    'Preheat oven to 200°C. Toss potato wedges in oil and paprika. Spread on a baking tray.',
+    'Bake wedges for 25–30 minutes, turning halfway, until golden.',
+    'Shape mince into two patties. Season both sides with salt and pepper.',
+    'Cook patties in a hot dry frying pan for 4–5 minutes per side.',
+    'Serve in buns with lettuce, tomato and onion. Add sauce to taste.',
+  ],
+}
+
+const sweetChilliChickenStirFry: LibraryMeal = {
+  id: 'sweet-chilli-chicken-stir-fry',
+  name: 'Sweet Chilli Chicken Stir-fry',
+  emoji: '🥡',
+  mealType: 'dinner',
+  calories: 480,
+  proteinG: 36,
+  prepMinutes: 15,
+  costGBP: 2.20,
+  tags: ['high-protein', 'quick', 'ManvFat-friendly'],
+  description: 'A takeaway-quality stir-fry in 15 minutes. Sweet chilli sauce does the heavy lifting on flavour.',
+  ingredients: [
+    '200g chicken breast, sliced thin',
+    '1 bag stir-fry veg (300g)',
+    '3 tbsp sweet chilli sauce',
+    '1 tbsp low-sodium soy sauce',
+    '1 tsp sesame oil',
+    '150g cooked egg noodles or rice',
+    '1 tsp oil',
+  ],
+  steps: [
+    'Heat oil in a wok or large frying pan over high heat.',
+    'Add chicken. Stir-fry for 5–6 minutes until cooked through. Remove and set aside.',
+    'Add veg to the hot pan. Stir-fry for 3 minutes.',
+    'Return chicken. Add sweet chilli sauce, soy sauce and sesame oil. Toss everything together.',
+    'Serve over noodles or rice.',
+  ],
+}
+
+const periPeriChickenWedges: LibraryMeal = {
+  id: 'peri-peri-chicken-wedges',
+  name: 'Peri-Peri Chicken & Wedges',
+  emoji: '🍗',
+  mealType: 'dinner',
+  calories: 510,
+  proteinG: 40,
+  prepMinutes: 30,
+  costGBP: 2.50,
+  tags: ['high-protein', 'family-friendly', 'ManvFat-friendly'],
+  description: 'Marinated chicken thighs with crispy oven wedges. Nandos-flavour without the £14 price tag.',
+  ingredients: [
+    '2 chicken thigh fillets (skinless)',
+    '2 medium potatoes, cut into wedges',
+    '2 tbsp peri-peri sauce (from a jar)',
+    '1 tsp oil',
+    '½ lemon',
+    'Corn on the cob or side salad to serve',
+  ],
+  steps: [
+    'Preheat oven to 200°C.',
+    'Toss wedges in oil, spread on a baking tray and bake for 25–30 minutes.',
+    'Coat chicken thighs in peri-peri sauce. Place on a second baking tray.',
+    'Bake chicken for 25 minutes until cooked through with charred edges.',
+    'Squeeze lemon over both. Serve with a side of corn or salad.',
+  ],
+}
+
+const sausagePepperBake: LibraryMeal = {
+  id: 'sausage-pepper-bake',
+  name: 'Sausage & Pepper Tray Bake',
+  emoji: '🌶️',
+  mealType: 'dinner',
+  calories: 490,
+  proteinG: 28,
+  prepMinutes: 30,
+  costGBP: 2.40,
+  tags: ['one-pan', 'family-friendly', 'batch-cook', 'ManvFat-friendly'],
+  description: 'Everything in one tray. Lean sausages, peppers and onions roasted together. Barely any effort, barely any washing up.',
+  ingredients: [
+    '4 reduced-fat pork sausages',
+    '2 mixed peppers, sliced',
+    '1 large red onion, cut into wedges',
+    '2 medium potatoes, diced',
+    '1 tsp smoked paprika',
+    '1 tsp mixed herbs',
+    '1 tbsp olive oil',
+  ],
+  steps: [
+    'Preheat oven to 200°C.',
+    'Spread potatoes, peppers and onion on a large baking tray. Drizzle with oil, scatter over paprika and herbs.',
+    'Nestle sausages among the veg.',
+    'Bake for 30 minutes, turning everything halfway through, until sausages are browned and potatoes are tender.',
+  ],
+}
+
+const salmonFishcakesPeas: LibraryMeal = {
+  id: 'salmon-fishcakes-peas',
+  name: 'Salmon Fishcakes & Peas',
+  emoji: '🐟',
+  mealType: 'dinner',
+  calories: 470,
+  proteinG: 32,
+  prepMinutes: 25,
+  costGBP: 2.60,
+  tags: ['high-protein', 'ManvFat-friendly'],
+  description: 'Homemade fishcakes from tinned salmon and mash. Quick to make and far cheaper than the supermarket versions.',
+  ingredients: [
+    '1 tin salmon (213g), drained',
+    '2 medium potatoes, boiled and mashed',
+    '1 tbsp light mayo',
+    '1 tsp Dijon mustard',
+    '2 spring onions, sliced',
+    '1 tbsp plain flour',
+    '100g frozen peas',
+    '1 tsp oil',
+  ],
+  steps: [
+    'Mix salmon, mash, mayo, mustard and spring onions together. Season well.',
+    'Shape into four patties. Dust lightly with flour.',
+    'Heat oil in a non-stick frying pan over medium heat. Cook fishcakes for 4 minutes per side until golden.',
+    'Cook peas in boiling water for 3 minutes. Serve alongside.',
+  ],
+}
+
+const beefBroccoliBlackBean: LibraryMeal = {
+  id: 'beef-broccoli-black-bean',
+  name: 'Beef, Broccoli & Black Bean',
+  emoji: '🥩',
+  mealType: 'dinner',
+  calories: 460,
+  proteinG: 38,
+  prepMinutes: 20,
+  costGBP: 2.50,
+  tags: ['high-protein', 'quick', 'ManvFat-friendly'],
+  description: 'A classic Chinese-inspired stir-fry with tender beef and crispy broccoli. Proper takeaway flavours at a fraction of the cost.',
+  ingredients: [
+    '200g lean beef strips or rump steak, sliced thin',
+    '200g broccoli florets',
+    '2 tbsp black bean sauce',
+    '1 tbsp low-sodium soy sauce',
+    '1 tsp sesame oil',
+    '2 garlic cloves, minced',
+    '150g cooked rice',
+    '1 tsp oil',
+  ],
+  steps: [
+    'Heat oil in a wok over very high heat. Add beef strips and cook for 2–3 minutes. Remove and set aside.',
+    'Add broccoli and garlic to the hot wok. Stir-fry for 3 minutes.',
+    'Return beef. Add black bean sauce, soy sauce and sesame oil. Toss together for 1 minute.',
+    'Serve over rice.',
+  ],
+}
+
+const bbqPulledChickenBaps: LibraryMeal = {
+  id: 'bbq-pulled-chicken-baps',
+  name: 'BBQ Pulled Chicken Baps',
+  emoji: '🍗',
+  mealType: 'dinner',
+  calories: 500,
+  proteinG: 40,
+  prepMinutes: 20,
+  costGBP: 2.20,
+  tags: ['high-protein', 'quick', 'family-friendly', 'ManvFat-friendly'],
+  description: 'Tender pulled chicken in smoky BBQ sauce. Serve in a bap with coleslaw. Faster than ordering a takeaway.',
+  ingredients: [
+    '2 chicken breast fillets',
+    '3 tbsp BBQ sauce',
+    '1 tsp smoked paprika',
+    '2 burger baps',
+    '60g coleslaw',
+    '1 tsp oil',
+  ],
+  steps: [
+    'Slice chicken breasts thin, or use the flat of a rolling pin to bash them out to even thickness.',
+    'Rub with paprika. Heat oil in a frying pan over high heat. Cook chicken for 5–6 minutes per side.',
+    'Remove from heat and shred with two forks.',
+    'Return shredded chicken to the pan with BBQ sauce. Toss over low heat for 1–2 minutes.',
+    'Pile into baps with coleslaw.',
+  ],
+}
+
+const chickenCheeseQuesadilla: LibraryMeal = {
+  id: 'chicken-cheese-quesadilla',
+  name: 'Chicken & Cheese Quesadilla',
+  emoji: '🫓',
+  mealType: 'dinner',
+  calories: 490,
+  proteinG: 38,
+  prepMinutes: 15,
+  costGBP: 2.20,
+  tags: ['high-protein', 'quick', 'family-friendly', 'ManvFat-friendly'],
+  description: 'Crispy tortilla filled with chicken, cheese and peppers. Kids love them. Ready in 15 minutes flat.',
+  ingredients: [
+    '150g cooked chicken breast, shredded',
+    '2 large flour tortillas',
+    '60g reduced-fat cheddar, grated',
+    '½ red pepper, finely diced',
+    '½ tsp smoked paprika',
+    '1 tsp oil',
+    'Salsa or Greek yoghurt to serve',
+  ],
+  steps: [
+    'Mix shredded chicken with pepper and paprika.',
+    'Lay one tortilla flat. Cover half with chicken mixture and cheese.',
+    'Fold the tortilla over to make a half-moon shape.',
+    'Heat oil in a large frying pan. Cook quesadilla for 2–3 minutes per side until golden and crispy.',
+    'Cut into wedges and serve with salsa or a dollop of Greek yoghurt.',
+  ],
+}
+
+// ─── SNACK ADDITIONS ──────────────────────────────────────────────────────────
+
+const srirachaBoiledEggs: LibraryMeal = {
+  id: 'sriracha-boiled-eggs',
+  name: 'Sriracha Boiled Eggs',
+  emoji: '🥚',
+  mealType: 'snack',
+  calories: 170,
+  proteinG: 14,
+  prepMinutes: 10,
+  costGBP: 0.75,
+  tags: ['high-protein', 'batch-cook', 'budget-friendly', 'under-500-kcal'],
+  description: 'Boiled eggs with a drizzle of sriracha. A spicy upgrade on the classic batch-cook snack.',
+  ingredients: [
+    '2 eggs',
+    '½ tsp sriracha sauce',
+    'Pinch of sea salt',
+    'Pinch of sesame seeds (optional)',
+  ],
+  steps: [
+    'Bring a small pan of water to the boil.',
+    'Lower eggs in gently and boil for 7 minutes for a set yolk.',
+    'Cool in cold water for 2 minutes, then peel.',
+    'Halve and top each half with a small drizzle of sriracha. Scatter sesame seeds if using.',
+  ],
+}
+
+const spicedRoastedChickpeas: LibraryMeal = {
+  id: 'spiced-roasted-chickpeas',
+  name: 'Spiced Roasted Chickpeas',
+  emoji: '🫘',
+  mealType: 'snack',
+  calories: 150,
+  proteinG: 8,
+  prepMinutes: 30,
+  costGBP: 0.50,
+  tags: ['batch-cook', 'budget-friendly', 'high-fibre', 'under-500-kcal'],
+  description: 'Crunchy, moreish and miles better than crisps. Make a big batch and keep in a jar for the week.',
+  ingredients: [
+    '1 tin chickpeas, drained and rinsed',
+    '1 tsp olive oil',
+    '1 tsp smoked paprika',
+    '½ tsp cumin',
+    '¼ tsp salt',
+  ],
+  steps: [
+    'Preheat oven to 200°C. Dry chickpeas thoroughly with a clean tea towel.',
+    'Toss with oil, paprika, cumin and salt.',
+    'Spread on a baking tray in a single layer.',
+    'Roast for 25–30 minutes until golden and crispy. They will firm up further as they cool.',
+    'Store in an open container at room temperature for up to five days.',
+  ],
+}
+
+const saltPepperEdamame: LibraryMeal = {
+  id: 'salt-pepper-edamame',
+  name: 'Salt & Pepper Edamame',
+  emoji: '🫛',
+  mealType: 'snack',
+  calories: 120,
+  proteinG: 11,
+  prepMinutes: 5,
+  costGBP: 0.80,
+  tags: ['high-protein', 'quick', 'budget-friendly', 'under-500-kcal'],
+  description: 'Frozen edamame defrosted in two minutes. One of the best high-protein snacks going and most supermarkets stock them.',
+  ingredients: [
+    '150g frozen edamame (in pods)',
+    '¼ tsp flaky sea salt',
+    '¼ tsp black pepper',
+    '½ tsp sesame oil (optional)',
+  ],
+  steps: [
+    'Cook edamame according to pack instructions (usually 3 minutes in boiling water, or 2 minutes in the microwave).',
+    'Drain and toss with salt, pepper and sesame oil if using.',
+    'Eat by squeezing the beans out of the pods into your mouth.',
+  ],
+}
+
+const skyrBerryPot: LibraryMeal = {
+  id: 'skyr-berry-pot',
+  name: 'Skyr Berry Pot',
+  emoji: '🫙',
+  mealType: 'snack',
+  calories: 180,
+  proteinG: 18,
+  prepMinutes: 2,
+  costGBP: 1.20,
+  tags: ['high-protein', 'quick', 'under-500-kcal', 'ManvFat-friendly'],
+  description: "Skyr is Iceland's answer to Greek yoghurt. More protein per serving, slightly milder taste. Top with berries and that's your afternoon snack sorted.",
+  ingredients: [
+    '170g plain skyr (or thick Greek yoghurt)',
+    '80g mixed berries (fresh or defrosted frozen)',
+    '1 tsp honey',
+    '1 tbsp granola (optional)',
+  ],
+  steps: [
+    'Spoon skyr into a bowl or travel pot.',
+    'Top with berries and drizzle over honey.',
+    'Add granola for extra crunch if using. Eat straight away or refrigerate for up to four hours.',
+  ],
+}
+
+const hamMozzarellaRollUps: LibraryMeal = {
+  id: 'ham-mozzarella-roll-ups',
+  name: 'Ham & Mozzarella Roll-Ups',
+  emoji: '🧀',
+  mealType: 'snack',
+  calories: 160,
+  proteinG: 17,
+  prepMinutes: 3,
+  costGBP: 1.30,
+  tags: ['high-protein', 'no-cook', 'quick', 'under-500-kcal'],
+  description: 'Sliced ham wrapped around mozzarella sticks. Tastes like proper food, takes 3 minutes and keeps in the fridge all week.',
+  ingredients: [
+    '4 slices lean cooked ham',
+    '2 mozzarella string cheese sticks (or 60g fresh mozzarella)',
+    'A few basil leaves or sliced sun-dried tomato (optional)',
+  ],
+  steps: [
+    'Lay each ham slice flat.',
+    'Place half a mozzarella stick (or a chunk of fresh mozzarella) at one edge.',
+    'Add basil or sun-dried tomato if using.',
+    'Roll the ham tightly around the filling. Secure with a cocktail stick if needed.',
+    'Refrigerate until ready to eat.',
+  ],
+}
+
 // ─── EXPORTS ──────────────────────────────────────────────────────────────────
 
 export const mealLibrary: LibraryMeal[] = [
@@ -745,12 +1442,24 @@ export const mealLibrary: LibraryMeal[] = [
   proteinSmoothie,
   avocadoEggsToast,
   bananaPorridge,
+  breakfastBurrito,
+  appleCrumbleOvernightOats,
+  eggBhurji,
+  cleanSheetSkillet,
+  pbBananaToast,
+  bananaProteinPancakes,
   // Lunch
   chickenCaesarWrap,
   tunaJacketPotato,
   prawnStirFryNoodles,
   lentilSoup,
   greekSaladChicken,
+  ploughmansBox,
+  tunaMeltToastie,
+  cajunChickenRiceBowl,
+  bigLadChilliPot,
+  srirachaChickenSlawWrap,
+  coronationChickenChickpeaSalad,
   // Dinner
   turkeyBolognese,
   bakedSalmonRoastedVeg,
@@ -761,12 +1470,25 @@ export const mealLibrary: LibraryMeal[] = [
   chickenChorizo,
   lemonHerbChicken,
   vegChickpeaCurry,
+  beefBurgerWedges,
+  sweetChilliChickenStirFry,
+  periPeriChickenWedges,
+  sausagePepperBake,
+  salmonFishcakesPeas,
+  beefBroccoliBlackBean,
+  bbqPulledChickenBaps,
+  chickenCheeseQuesadilla,
   // Snack
   appleWithPeanutButter,
   cottageCheeseCucumber,
   mixedNutsBanana,
   riceCakesHummus,
   boiledEggs,
+  srirachaBoiledEggs,
+  spicedRoastedChickpeas,
+  saltPepperEdamame,
+  skyrBerryPot,
+  hamMozzarellaRollUps,
 ]
 
 export const getMealsByType = (type: LibraryMeal['mealType']) =>

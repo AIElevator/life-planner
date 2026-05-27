@@ -284,6 +284,41 @@ export default async function DashboardPage() {
         </div>
       </div>
 
+      {/* ── Off-the-Ball nudge ────────────────────────────────────── */}
+      {(() => {
+        const dayNudges = [
+          { emoji: '🚶', title: 'Walk something today', body: "Swap one car journey for your feet. Under two miles is totally walkable and you'll burn 150–200 kcal without it feeling like exercise.", cta: 'Park further away, walk to the shop, take the long route home.', colour: 'from-orange-500 to-amber-500' },
+          { emoji: '🪜', title: 'Take the stairs all day', body: "Skip every lift and escalator you see today. Stair climbing burns roughly ten times more calories per minute than sitting in a lift.", cta: 'Make it a rule: if it\'s fewer than five floors, you take the stairs.', colour: 'from-orange-500 to-amber-500' },
+          { emoji: '📺', title: 'Move during ad breaks', body: 'Ten squats, ten press-ups, ten calf raises. Do that every ad break tonight and you\'ll burn an extra 80–100 kcal without missing a second of your programme.', cta: 'Tonight: stand up every time an ad comes on.', colour: 'from-orange-500 to-amber-500' },
+          { emoji: '⏱️', title: 'Set an hourly alarm', body: "If you're at a desk today, stand up every hour. Standing burns 50 kcal more per hour than sitting. Over eight hours, that's 400 kcal with zero sweat.", cta: 'Set a recurring alarm on your phone for every hour now.', colour: 'from-orange-500 to-amber-500' },
+          { emoji: '🚴', title: 'Cycle one trip this week', body: "Most bikes can cover five miles in under 25 minutes. That's the same time as sitting in traffic and it burns around 250 kcal.", cta: "One trip this week on a bike instead of in a car. That's the whole challenge.", colour: 'from-orange-500 to-amber-500' },
+          { emoji: '📞', title: 'Pace when you talk', body: "Next time you take a phone call, stand up and walk around. Pacing during a 20-minute call burns roughly 60 kcal more than sitting still for it.", cta: "Rule: phone calls happen standing up, starting today.", colour: 'from-orange-500 to-amber-500' },
+          { emoji: '🛒', title: 'Walk to the shops', body: "Your local corner shop is almost certainly within 15 minutes on foot. That's an extra 1,500–2,000 steps each way for the price of a loaf of bread.", cta: "If you need something today, walk to get it.", colour: 'from-orange-500 to-amber-500' },
+        ]
+        const nudge = dayNudges[today.getDay()]
+        return (
+          <div className="bg-white rounded-2xl border border-orange-100 overflow-hidden">
+            <div className="flex items-center gap-2.5 px-5 pt-5 pb-4 border-b border-orange-50">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-orange-500 shadow-sm shadow-orange-200/60 text-sm">
+                ⚡
+              </span>
+              <h2 className="font-semibold text-gray-900 text-sm">Off-the-Ball Work</h2>
+              <span className="ml-auto text-xs text-gray-400">Move more, eat the same, lose more</span>
+            </div>
+            <div className="px-5 py-4 flex items-start gap-4">
+              <span className="text-3xl shrink-0 mt-0.5">{nudge.emoji}</span>
+              <div className="space-y-1.5 min-w-0">
+                <p className="font-semibold text-gray-900 text-sm">{nudge.title}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{nudge.body}</p>
+                <div className="inline-block rounded-lg bg-orange-50 border border-orange-100 px-3 py-2 text-xs font-medium text-orange-700">
+                  🎯 {nudge.cta}
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      })()}
+
       {/* ── CTA banner ────────────────────────────────────────────── */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-600 via-emerald-600 to-teal-700 p-7 text-white">
         {/* Decorative circles */}

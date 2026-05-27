@@ -1,4 +1,4 @@
-import { BookOpen, Pill, Scale, Droplets, Moon, Brain, AlertTriangle, CheckCircle, ExternalLink } from 'lucide-react'
+import { BookOpen, Pill, Scale, Droplets, Moon, Brain, AlertTriangle, CheckCircle, ExternalLink, Activity, Bike, Tv, Monitor } from 'lucide-react'
 
 const supplements = [
   {
@@ -160,6 +160,108 @@ export default function AdvicePage() {
               </div>
             )
           })}
+        </div>
+      </section>
+
+      {/* Off-the-Ball Work — NEAT */}
+      <section className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            <Activity className="h-5 w-5 text-orange-400" />
+            Off-the-Ball Work
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">The calories you burn without noticing add up to more than you think.</p>
+        </div>
+
+        {/* NEAT explainer */}
+        <div className="bg-orange-50 border border-orange-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-orange-800 text-sm">What is NEAT?</p>
+          <p className="text-sm text-orange-700 leading-relaxed">
+            NEAT stands for Non-Exercise Activity Thermogenesis: every calorie you burn that isn&apos;t formal exercise or sport.
+            Walking to the shops, standing up at your desk, pacing while on the phone. It might not sound like much,
+            but an active person can burn 500–1,000 kcal more per day than a sedentary one at the same body weight.
+            That&apos;s the equivalent of a second gym session, without any gym kit required.
+          </p>
+          <div className="rounded-lg bg-orange-100 text-orange-800 px-3 py-2 text-xs font-medium">
+            📊 NEAT accounts for up to 30% of total daily energy expenditure
+          </div>
+        </div>
+
+        {/* NEAT action cards */}
+        <div className="grid sm:grid-cols-2 gap-3">
+
+          {/* 10,000 steps */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-xl">
+              🚶
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 text-sm">Walk 10,000 steps a day</h3>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                At 80–90kg, 10,000 steps burns roughly 350–400 kcal. That&apos;s almost a meal&apos;s worth of calories without changing
+                what you eat. Park at the far end of the car park. Take the stairs. Walk to the corner shop instead of driving.
+                The steps add up faster than you think.
+              </p>
+            </div>
+            <div className="rounded-lg bg-emerald-50 text-emerald-800 px-3 py-2 text-xs font-medium">
+              🎯 Today&apos;s challenge: walk to somewhere you&apos;d usually drive
+            </div>
+          </div>
+
+          {/* Active travel */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+              <Bike className="h-5 w-5 text-blue-600" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 text-sm">Walk or cycle for short trips</h3>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                Any journey under two miles is a genuine option on foot. Under five miles is doable on a bike.
+                Swap one car trip a day for walking or cycling and you&apos;ll add 200–400 kcal of burn before you&apos;ve even
+                thought about exercise. It also clears your head before work better than a commute does.
+              </p>
+            </div>
+            <div className="rounded-lg bg-blue-50 text-blue-800 px-3 py-2 text-xs font-medium">
+              🎯 Today&apos;s challenge: walk one journey you&apos;d normally drive
+            </div>
+          </div>
+
+          {/* TV time moves */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center">
+              <Tv className="h-5 w-5 text-violet-600" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 text-sm">Move during TV time</h3>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                Nobody&apos;s asking you to give up the sofa. But during ad breaks or between episodes, try:
+                calf raises standing up, chair squats, press-ups against the coffee table, or just walking
+                to the kitchen and back. Ten minutes of movement across a two-hour watch can add 80–120 kcal burned.
+              </p>
+            </div>
+            <div className="rounded-lg bg-violet-50 text-violet-800 px-3 py-2 text-xs font-medium">
+              🎯 Tonight: stand up every time there&apos;s an ad break
+            </div>
+          </div>
+
+          {/* Desk moves */}
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+              <Monitor className="h-5 w-5 text-amber-600" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-900 text-sm">Desk and office moves</h3>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                Set a phone alarm for every hour. When it goes off: stand up, do ten squats, ten desk push-ups
+                or just walk to a colleague&apos;s desk instead of messaging them. Standing burns roughly 50 kcal more
+                per hour than sitting. Over an eight-hour day, that&apos;s 400 extra calories with zero sweat.
+              </p>
+            </div>
+            <div className="rounded-lg bg-amber-50 text-amber-800 px-3 py-2 text-xs font-medium">
+              🎯 Set an hourly alarm and stand up when it fires
+            </div>
+          </div>
+
         </div>
       </section>
 

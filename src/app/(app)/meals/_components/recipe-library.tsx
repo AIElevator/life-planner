@@ -48,20 +48,24 @@ export function RecipeLibrary() {
           >
             {/* Recipe photo */}
             <div className="relative h-36 bg-gray-100 overflow-hidden">
-              <img
-                src={meal.imageUrl}
-                alt={meal.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.currentTarget
-                  target.style.display = 'none'
-                  const parent = target.parentElement
-                  if (parent) {
-                    parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:#f3f4f6">${meal.emoji}</div>`
-                  }
-                }}
-              />
+              {meal.imageUrl ? (
+                <img
+                  src={meal.imageUrl}
+                  alt={meal.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget
+                    target.style.display = 'none'
+                    const parent = target.parentElement
+                    if (parent) {
+                      parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:#f3f4f6">${meal.emoji}</div>`
+                    }
+                  }}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-5xl bg-gray-50">{meal.emoji}</div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               <div className="absolute top-2 right-2 flex flex-wrap gap-1">
                 {meal.tags.slice(0, 1).map((tag) => (
@@ -110,19 +114,23 @@ export function RecipeLibrary() {
           >
             {/* Hero image */}
             <div className="relative h-48 rounded-t-3xl overflow-hidden bg-gray-100">
-              <img
-                src={selected.imageUrl}
-                alt={selected.name}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.currentTarget
-                  target.style.display = 'none'
-                  const parent = target.parentElement
-                  if (parent) {
-                    parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:#f3f4f6">${selected.emoji}</div>`
-                  }
-                }}
-              />
+              {selected.imageUrl ? (
+                <img
+                  src={selected.imageUrl}
+                  alt={selected.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.currentTarget
+                    target.style.display = 'none'
+                    const parent = target.parentElement
+                    if (parent) {
+                      parent.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:#f3f4f6">${selected.emoji}</div>`
+                    }
+                  }}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-7xl bg-gray-50">{selected.emoji}</div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <button
                 onClick={() => setSelected(null)}
