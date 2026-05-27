@@ -32,7 +32,7 @@ export default async function HomePage() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Link href="/login" className="text-sm font-medium text-emerald-300 hover:text-white transition-colors">Sign in</Link>
-            <Link href="/signup" className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-400 transition-colors">
+            <Link href="/signup" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#34d399', color: '#022c22', padding: '8px 18px', borderRadius: '8px', fontWeight: 700, fontSize: '0.875rem', textDecoration: 'none' }}>
               Get started <ChevronRight className="h-3.5 w-3.5" />
             </Link>
           </div>
