@@ -271,7 +271,7 @@ const prawnStirFryNoodles: LibraryMeal = {
     'Add noodles and soy sauce. Toss everything together for 2 minutes.',
     'Drizzle with sesame oil and serve immediately.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&q=80',
+  imageUrl: '/images/recipes/prawn-noodles.webp',
 }
 
 const lentilSoup: LibraryMeal = {
@@ -302,7 +302,7 @@ const lentilSoup: LibraryMeal = {
     'Blend half the soup for a thicker consistency, or leave chunky.',
     'Season and serve with crusty bread.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80',
+  imageUrl: '/images/recipes/lentil-soup.webp',
 }
 
 const greekSaladChicken: LibraryMeal = {
@@ -332,7 +332,7 @@ const greekSaladChicken: LibraryMeal = {
     'Top the salad with sliced chicken and crumbled feta.',
     'Drizzle dressing over and toss gently.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80',
+  imageUrl: '/images/recipes/greek-salad-chicken.webp',
 }
 
 // ─── DINNER (9) ───────────────────────────────────────────────────────────────
