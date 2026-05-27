@@ -105,58 +105,106 @@ export default async function WorkoutsPage({
         <div className="grid sm:grid-cols-2 gap-4">
           {filtered.map(ex => (
             <details key={ex.id} className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-gray-200 hover:shadow-md transition-all">
-              <summary className="flex items-center gap-4 p-5 cursor-pointer list-none">
-                <span className="text-3xl shrink-0">{ex.emoji}</span>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-gray-900">{ex.name}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{ex.muscles.join(' · ')}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <span className={`text-xs font-medium rounded-full border px-2.5 py-0.5 capitalize ${difficultyColour(ex.difficulty)}`}>
-                      {ex.difficulty}
-                    </span>
-                    <span className="text-xs text-gray-400">{ex.sets} sets × {ex.reps}</span>
-                    <span className="flex items-center gap-1 text-xs text-gray-400">
-                      <Flame className="h-3 w-3 text-orange-400" /> ~{ex.calories * ex.sets} kcal
-                    </span>
+              <summary className="cursor-pointer list-none">
+                {/* Card preview image */}
+                {ex.imageUrl ? (
+                  <div className="relative h-40 bg-gray-100 overflow-hidden">
+                    <img
+                      src={ex.imageUrl}
+                      alt={ex.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                      <div>
+                        <h3 className="font-semibold text-white text-sm leading-tight">{ex.name}</h3>
+                        <p className="text-white/70 text-xs mt-0.5">{ex.muscles.join(' · ')}</p>
+                      </div>
+                      <ChevronDown className="h-4 w-4 text-white/80 shrink-0 group-open:rotate-180 transition-transform mb-0.5" />
+                    </div>
+                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
+                      <span className={`text-xs font-medium rounded-full border px-2 py-0.5 capitalize backdrop-blur-sm ${difficultyColour(ex.difficulty)}`}>
+                        {ex.difficulty}
+                      </span>
+                    </div>
+                    <div className="absolute top-3 right-3 flex items-center gap-1 text-xs text-white/80 bg-black/20 backdrop-blur-sm rounded-full px-2 py-0.5">
+                      <Flame className="h-3 w-3 text-orange-300" /> ~{ex.calories * ex.sets} kcal
+                    </div>
                   </div>
-                </div>
-                <ChevronDown className="h-4 w-4 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" />
+                ) : (
+                  <div className="flex items-center gap-4 p-5">
+                    <span className="text-3xl shrink-0">{ex.emoji}</span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-gray-900">{ex.name}</h3>
+                      <p className="text-xs text-gray-400 mt-0.5">{ex.muscles.join(' · ')}</p>
+                      <div className="flex items-center gap-2 mt-2">
+                        <span className={`text-xs font-medium rounded-full border px-2.5 py-0.5 capitalize ${difficultyColour(ex.difficulty)}`}>
+                          {ex.difficulty}
+                        </span>
+                        <span className="text-xs text-gray-400">{ex.sets} sets × {ex.reps}</span>
+                        <span className="flex items-center gap-1 text-xs text-gray-400">
+                          <Flame className="h-3 w-3 text-orange-400" /> ~{ex.calories * ex.sets} kcal
+                        </span>
+                      </div>
+                    </div>
+                    <ChevronDown className="h-4 w-4 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" />
+                  </div>
+                )}
               </summary>
 
-              <div className="px-5 pb-5 border-t border-gray-50 pt-4 space-y-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">How to do it</p>
-                  <ol className="space-y-1.5">
-                    {ex.instructions.map((step, i) => (
-                      <li key={i} className="flex gap-2.5 text-sm text-gray-600">
-                        <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Tips</p>
-                  <ul className="space-y-1">
-                    {ex.tips.map((tip, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-gray-500">
-                        <span className="text-emerald-500 shrink-0">✓</span> {tip}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="flex items-center gap-3 pt-1">
-                  <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
-                    <p className="text-xs text-gray-400">Sets</p>
-                    <p className="font-bold text-gray-900">{ex.sets}</p>
+              <div className="border-t border-gray-50">
+                {/* Demonstration image in expanded view */}
+                {ex.imageUrl && (
+                  <div className="px-5 pt-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Demonstration</p>
+                    <div className="rounded-xl overflow-hidden h-52 bg-gray-100">
+                      <img
+                        src={ex.imageUrl}
+                        alt={`${ex.name} demonstration`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
-                  <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
-                    <p className="text-xs text-gray-400">Reps / Time</p>
-                    <p className="font-bold text-gray-900">{ex.reps}</p>
+                )}
+
+                <div className="px-5 pb-5 pt-4 space-y-4">
+                  {/* Sets / Reps / Rest */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
+                      <p className="text-xs text-gray-400">Sets</p>
+                      <p className="font-bold text-gray-900">{ex.sets}</p>
+                    </div>
+                    <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
+                      <p className="text-xs text-gray-400">Reps / Time</p>
+                      <p className="font-bold text-gray-900">{ex.reps}</p>
+                    </div>
+                    <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
+                      <p className="text-xs text-gray-400">Rest</p>
+                      <p className="font-bold text-gray-900">{ex.restSeconds}s</p>
+                    </div>
                   </div>
-                  <div className="flex-1 rounded-xl bg-gray-50 border border-gray-100 px-4 py-2.5 text-center">
-                    <p className="text-xs text-gray-400">Rest</p>
-                    <p className="font-bold text-gray-900">{ex.restSeconds}s</p>
+
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">How to do it</p>
+                    <ol className="space-y-1.5">
+                      {ex.instructions.map((step, i) => (
+                        <li key={i} className="flex gap-2.5 text-sm text-gray-600">
+                          <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Tips</p>
+                    <ul className="space-y-1">
+                      {ex.tips.map((tip, i) => (
+                        <li key={i} className="flex gap-2 text-sm text-gray-500">
+                          <span className="text-emerald-500 shrink-0">✓</span> {tip}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

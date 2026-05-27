@@ -11,6 +11,7 @@ export type Exercise = {
   tips: string[]
   calories: number // approx per set
   emoji: string
+  imageUrl?: string
 }
 
 export const exercises: Exercise[] = [
@@ -33,6 +34,7 @@ export const exercises: Exercise[] = [
       'Drive through your heels to stand back up',
     ],
     tips: ['Go slow on the way down — 3 seconds down, 1 second up', 'Keep your weight in your heels', 'Squeeze glutes at the top'],
+    imageUrl: '/images/exercises/bodyweight-squat.webp',
   },
   {
     id: 'push-up',
@@ -53,6 +55,7 @@ export const exercises: Exercise[] = [
       'Push back up to starting position',
     ],
     tips: ['Can\'t do full ones? Start on your knees — that\'s fine', 'Avoid letting hips sag or pike up', 'Slow and controlled beats fast and sloppy'],
+    imageUrl: '/images/exercises/press-up.webp',
   },
   {
     id: 'plank',
@@ -73,6 +76,7 @@ export const exercises: Exercise[] = [
       'Hold for the target time',
     ],
     tips: ['Focus on quality over time — 20 perfect seconds beats 60 sloppy ones', 'Stare at the floor to keep neck neutral', 'Build up time gradually each week'],
+    imageUrl: '/images/exercises/plank-hold.webp',
   },
   {
     id: 'lunge',
@@ -93,6 +97,7 @@ export const exercises: Exercise[] = [
       'Push through your front heel to return to start, then alternate legs',
     ],
     tips: ['Reverse lunges are easier on the knees than forward lunges', 'Hold on to a wall if balance is an issue', 'Keep front knee directly over your ankle'],
+    imageUrl: '/images/exercises/reverse-lunge.webp',
   },
   {
     id: 'burpee',
@@ -113,6 +118,7 @@ export const exercises: Exercise[] = [
       'Jump or step feet back to your hands, then explosively jump up with arms overhead',
     ],
     tips: ['No shame in stepping instead of jumping — same muscles, less impact', 'Rest more between sets if needed — these are tough', 'Brilliant for burning fat in short sessions'],
+    imageUrl: '/images/exercises/burpee.webp',
   },
   {
     id: 'mountain-climber',
@@ -133,6 +139,7 @@ export const exercises: Exercise[] = [
       'Keep hips level — don\'t let them rise or sag',
     ],
     tips: ['Slower = more core work. Faster = more cardio', 'Keep breathing throughout', 'Great for burning calories without equipment'],
+    imageUrl: '/images/exercises/mountain-climbers.webp',
   },
   {
     id: 'glute-bridge',
@@ -153,6 +160,7 @@ export const exercises: Exercise[] = [
       'Lower slowly back to the floor',
     ],
     tips: ['Brilliant for men who sit all day — fires up inactive glutes', 'Pause and squeeze hard at the top', 'Can make harder by extending one leg'],
+    imageUrl: '/images/exercises/glute-bridge.webp',
   },
   {
     id: 'jumping-jacks',
@@ -173,6 +181,7 @@ export const exercises: Exercise[] = [
       'Repeat rhythmically',
     ],
     tips: ['Good warm-up exercise before a workout', 'Land softly to protect your knees and joints', 'Can step side-to-side instead of jumping to reduce impact'],
+    imageUrl: '/images/exercises/jumping-jacks.webp',
   },
   {
     id: 'tricep-dip',
