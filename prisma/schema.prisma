@@ -130,6 +130,12 @@ model PasswordResetToken {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model Visit {
+  id        String   @id @default(cuid())
+  ip        String?
+  createdAt DateTime @default(now())
+}
+
 model DiaryShare {
   id         String   @id @default(cuid())
   token      String   @unique @default(cuid())

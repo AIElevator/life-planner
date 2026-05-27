@@ -1,15 +1,25 @@
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import { requireAuth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { subDays, startOfDay, format } from 'date-fns'
 
 const ADMIN_EMAILS = ['davrhall@hotmail.co.uk', 'davehallrugby@outlook.com', 'info@aielevation.co.uk']
 
+// IPs to always exclude from visit counts — add yours here after first visit
+const EXCLUDED_IPS: string[] = []
+
 export default async function AdminPage() {
   const session = await requireAuth()
   if (!ADMIN_EMAILS.includes(session.email)) redirect('/dashboard')
 
+  const headersList = await headers()
+  const myIp = headersList.get('x-forwarded-for')?.split(',')[0].trim()
+    ?? headersList.get('x-real-ip')
+    ?? 'unknown'
+
   const now = new Date()
+  const day1 = startOfDay(subDays(now, 1))
   const day7 = startOfDay(subDays(now, 7))
   const day30 = startOfDay(subDays(now, 30))
 
@@ -23,6 +33,14 @@ export default async function AdminPage() {
     activeUsers7d,
     recentSignups,
     topMeals,
+    visitsAll,
+    visitsToday,
+    visitsWeek,
+    visitsMonth,
+    visitsAllExcl,
+    visitsTodayExcl,
+    visitsWeekExcl,
+    visitsMonthExcl,
   ] = await Promise.all([
     prisma.user.count(),
     prisma.user.count({ where: { createdAt: { gte: day7 } } }),
@@ -30,7 +48,6 @@ export default async function AdminPage() {
     prisma.mealLog.count(),
     prisma.exerciseLog.count(),
     prisma.weighIn.count(),
-    // Users who logged a meal or exercise in last 7 days
     prisma.user.count({
       where: {
         OR: [
@@ -50,6 +67,16 @@ export default async function AdminPage() {
       orderBy: { _count: { mealName: 'desc' } },
       take: 10,
     }),
+    // Visit counts — all IPs
+    prisma.visit.count(),
+    prisma.visit.count({ where: { createdAt: { gte: day1 } } }),
+    prisma.visit.count({ where: { createdAt: { gte: day7 } } }),
+    prisma.visit.count({ where: { createdAt: { gte: day30 } } }),
+    // Visit counts — excluding known admin IPs + current viewer IP
+    prisma.visit.count({ where: { ip: { notIn: [...EXCLUDED_IPS, myIp] } } }),
+    prisma.visit.count({ where: { createdAt: { gte: day1 }, ip: { notIn: [...EXCLUDED_IPS, myIp] } } }),
+    prisma.visit.count({ where: { createdAt: { gte: day7 }, ip: { notIn: [...EXCLUDED_IPS, myIp] } } }),
+    prisma.visit.count({ where: { createdAt: { gte: day30 }, ip: { notIn: [...EXCLUDED_IPS, myIp] } } }),
   ])
 
   const stats = [
@@ -67,6 +94,31 @@ export default async function AdminPage() {
       <div>
         <h1 className="text-2xl font-bold">Admin</h1>
         <p className="text-gray-400 text-sm mt-1">Only visible to you.</p>
+      </div>
+
+      {/* Visit counts */}
+      <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-4">
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h2 className="font-semibold text-gray-900 text-sm">Page visits</h2>
+            <p className="text-xs text-gray-400 mt-0.5">Your current IP: <span className="font-mono text-gray-600">{myIp}</span></p>
+          </div>
+          <span className="text-xs text-gray-400 bg-gray-50 rounded-lg px-2.5 py-1">Excluding your IP automatically</span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { label: 'Today', all: visitsToday, excl: visitsTodayExcl },
+            { label: 'Last 7 days', all: visitsWeek, excl: visitsWeekExcl },
+            { label: 'Last 30 days', all: visitsMonth, excl: visitsMonthExcl },
+            { label: 'All time', all: visitsAll, excl: visitsAllExcl },
+          ].map(({ label, all, excl }) => (
+            <div key={label} className="rounded-xl bg-indigo-50 border border-indigo-100 p-4 space-y-1">
+              <p className="text-2xl font-bold text-indigo-700">{excl.toLocaleString()}</p>
+              <p className="text-xs font-medium text-indigo-500">{label}</p>
+              <p className="text-[10px] text-indigo-400">{all.toLocaleString()} inc. your IP</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Stats grid */}
