@@ -265,6 +265,7 @@ export const exercises: Exercise[] = [
       'Slide back up to standing to rest',
     ],
     tips: ['Burns more than you\'d expect — great for legs and fat loss', 'Don\'t let knees cave inward', 'Can make harder by holding a weight on your thighs'],
+    imageUrl: '/images/exercises/wall-sit.webp',
   },
 ]
 
