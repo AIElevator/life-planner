@@ -365,7 +365,7 @@ const turkeyBolognese: LibraryMeal = {
     'Stir in tomatoes, tomato purée, and oregano. Simmer for 15 minutes.',
     'Season generously and serve over spaghetti.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600&q=80',
+  imageUrl: '/images/recipes/turkey-bolognaise.png',
 }
 
 const bakedSalmonRoastedVeg: LibraryMeal = {
