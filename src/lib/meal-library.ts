@@ -125,7 +125,7 @@ const proteinSmoothie: LibraryMeal = {
     'Taste and add more honey if needed.',
     'Drink immediately.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&q=80',
+  imageUrl: '/images/recipes/banana-protein-smoothie.webp',
 }
 
 const avocadoEggsToast: LibraryMeal = {
@@ -154,7 +154,7 @@ const avocadoEggsToast: LibraryMeal = {
     'Crack each egg into a small cup. Swirl the water and slide eggs in. Cook for 3 minutes for a runny yolk.',
     'Spread avocado on toast, top with eggs, and scatter chilli flakes.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?w=600&q=80',
+  imageUrl: '/images/recipes/avocado-poached-egg.webp',
 }
 
 const bananaPorridge: LibraryMeal = {
