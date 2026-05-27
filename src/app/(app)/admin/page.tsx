@@ -3,7 +3,7 @@ import { requireAuth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { subDays, startOfDay, format } from 'date-fns'
 
-const ADMIN_EMAILS = ['davrhall@hotmail.co.uk', 'davehallrugby@outlook.com']
+const ADMIN_EMAILS = ['davrhall@hotmail.co.uk', 'davehallrugby@outlook.com', 'info@aielevation.co.uk']
 
 export default async function AdminPage() {
   const session = await requireAuth()
