@@ -202,6 +202,7 @@ export const exercises: Exercise[] = [
       'Press back up to starting position',
     ],
     tips: ['Feet closer to you = easier. Feet further out = harder', 'Keep elbows pointing straight back, not flaring sideways', 'Use a sturdy chair or bench — not a wheeled office chair!'],
+    imageUrl: '/images/exercises/chair-tricep-dip.webp',
   },
   {
     id: 'high-knees',
@@ -222,6 +223,7 @@ export const exercises: Exercise[] = [
       'Maintain an upright posture throughout',
     ],
     tips: ['Great indoor cardio when the weather is awful', 'Drive arms to increase intensity', 'Can slow down to a march if needed — still burns calories'],
+    imageUrl: '/images/exercises/high-knees.webp',
   },
   {
     id: 'superman',
