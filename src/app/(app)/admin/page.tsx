@@ -3,11 +3,11 @@ import { requireAuth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { subDays, startOfDay, format } from 'date-fns'
 
-const ADMIN_EMAIL = 'davrhall@hotmail.co.uk'
+const ADMIN_EMAILS = ['davrhall@hotmail.co.uk', 'davehallrugby@outlook.com']
 
 export default async function AdminPage() {
   const session = await requireAuth()
-  if (session.email !== ADMIN_EMAIL) redirect('/dashboard')
+  if (!ADMIN_EMAILS.includes(session.email)) redirect('/dashboard')
 
   const now = new Date()
   const day7 = startOfDay(subDays(now, 7))
