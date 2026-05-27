@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { prisma } from '@/lib/prisma'
 import { requireAuth } from '@/lib/auth'
 import { MealLogSchema, type FormState } from '@/lib/definitions'
+import { startOfDay, endOfDay, subDays } from 'date-fns'
 
 export async function logMeal(state: FormState, formData: FormData): Promise<FormState> {
   const session = await requireAuth()
@@ -84,4 +85,54 @@ export async function completeMealPlan(id: string) {
   })
   revalidatePath('/meals')
   revalidatePath('/dashboard')
+}
+
+export async function copyYesterdaysMeals(): Promise<void> {
+  const session = await requireAuth()
+  const today = new Date()
+  const yesterday = subDays(today, 1)
+
+  const yesterdayMeals = await prisma.mealLog.findMany({
+    where: {
+      userId: session.id,
+      date: { gte: startOfDay(yesterday), lte: endOfDay(yesterday) },
+    },
+    include: { members: true },
+  })
+
+  if (yesterdayMeals.length === 0) return
+
+  // Check we aren't duplicating — skip any meal type already logged today
+  const todayMeals = await prisma.mealLog.findMany({
+    where: {
+      userId: session.id,
+      date: { gte: startOfDay(today), lte: endOfDay(today) },
+    },
+    select: { mealType: true },
+  })
+  const todayTypes = new Set(todayMeals.map((m) => m.mealType))
+
+  const toCreate = yesterdayMeals.filter((m) => !todayTypes.has(m.mealType))
+  if (toCreate.length === 0) return
+
+  for (const meal of toCreate) {
+    await prisma.mealLog.create({
+      data: {
+        userId: session.id,
+        date: startOfDay(today),
+        mealType: meal.mealType,
+        mealName: meal.mealName,
+        description: meal.description,
+        calories: meal.calories,
+        budget: meal.budget,
+        notes: meal.notes,
+        members: meal.members.length
+          ? { connect: meal.members.map((m) => ({ id: m.id })) }
+          : undefined,
+      },
+    })
+  }
+
+  revalidatePath('/dashboard')
+  revalidatePath('/meals')
 }

@@ -15,7 +15,15 @@ model User {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  whatsappNumber  String?
+  whatsappNumber       String?
+
+  // Goals & targets
+  dailyCalorieTarget   Int?    @default(2000)
+  dailyProteinTarget   Int?    @default(150)
+
+  // ManvFat schedule
+  weighInDay           String?  // "monday", "tuesday" … "sunday"
+  matchDayOfWeek       Int?     // 0 = Sunday … 6 = Saturday
 
   familyMembers   FamilyMember[]
   mealLogs        MealLog[]
@@ -24,6 +32,18 @@ model User {
   foodPreferences FoodPreference[]
   diaryShares          DiaryShare[]
   passwordResetTokens  PasswordResetToken[]
+  weightLogs           WeighIn[]
+}
+
+model WeighIn {
+  id        String   @id @default(cuid())
+  userId    String
+  date      DateTime
+  weightKg  Float
+  notes     String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model FamilyMember {

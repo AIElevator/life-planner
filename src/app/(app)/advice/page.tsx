@@ -326,6 +326,96 @@ export default function AdvicePage() {
         </div>
       </section>
 
+      {/* Weigh-in prep */}
+      <section id="weigh-in" className="space-y-4">
+        <div>
+          <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
+            ⚖️ ManvFat weigh-in strategy
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">The 24 hours before weigh-in matter more than most men realise.</p>
+        </div>
+
+        <div className="bg-violet-50 border border-violet-100 rounded-2xl p-5 space-y-2">
+          <p className="font-semibold text-violet-800 text-sm">Why bother with prep?</p>
+          <p className="text-sm text-violet-700 leading-relaxed">
+            Your body weight fluctuates by 1–3 kg day to day depending on what you ate, how much water you drank
+            and how well you slept. None of that is fat. Getting your prep right means the scales reflect
+            genuine progress rather than last night&apos;s curry.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-3">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">🧂</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Keep sodium low the night before</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Salt causes your body to retain water. Takeaways, crisps, processed meats and ready meals are
+              all high in sodium. A lighter, home-cooked dinner the night before weigh-in can make a
+              meaningful difference on the scales.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">💧</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Drink plenty of water</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              This sounds counterintuitive but staying well hydrated actually reduces water retention.
+              When you&apos;re dehydrated, your body holds on to fluid. Aim for two to three litres during the
+              day and avoid going to bed thirsty.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">🍺</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Skip the alcohol</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Alcohol is high in calories and causes significant water retention and inflammation.
+              Even two or three pints the night before weigh-in can add 0.5–1 kg on the scales purely
+              from fluid retention. Save the celebratory drink for after the weigh-in.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">🌙</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Get a decent night&apos;s sleep</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Poor sleep increases cortisol, which promotes water retention and fat storage around
+              the belly. Even one bad night can add 0.3–0.5 kg of temporary weight. A good sleep
+              costs nothing and pays out on the scales.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">⏰</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Weigh in first thing</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Weigh yourself first thing in the morning, after using the toilet and before eating or
+              drinking anything. This is your lowest and most consistent daily weight. Do it at the
+              same time every week in the same clothes — consistency is what makes the trend meaningful.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-2">
+            <p className="text-xl">👕</p>
+            <h3 className="font-semibold text-gray-900 text-sm">Wear the same kit every week</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Clothing can add 0.2–0.8 kg depending on what you wear. Jeans vs. shorts is a measurable
+              difference. Keep the same trainers, same shorts, same kit each week so the number you&apos;re
+              comparing is as consistent as possible.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-emerald-50 rounded-2xl border border-emerald-100 p-5">
+          <p className="font-semibold text-emerald-800 text-sm mb-2">The big picture</p>
+          <p className="text-sm text-emerald-700 leading-relaxed">
+            Week-to-week fluctuations are normal and often frustrating. What matters is the trend over four to
+            six weeks. One bad weigh-in doesn&apos;t mean you&apos;re failing. Look at the direction of travel, not
+            the individual data points. The app&apos;s Progress page shows you the trend line.
+          </p>
+        </div>
+      </section>
+
       {/* Disclaimer */}
       <div className="bg-gray-50 rounded-2xl border border-gray-100 p-5 flex gap-3">
         <AlertTriangle className="h-4 w-4 text-gray-400 shrink-0 mt-0.5" />

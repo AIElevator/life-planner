@@ -5,7 +5,17 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { revalidatePath } from 'next/cache'
-import { saveWhatsappSettings } from '@/actions/settings'
+import { saveWhatsappSettings, saveGoals } from '@/actions/settings'
+
+const daysOfWeek = [
+  { value: '1', label: 'Monday' },
+  { value: '2', label: 'Tuesday' },
+  { value: '3', label: 'Wednesday' },
+  { value: '4', label: 'Thursday' },
+  { value: '5', label: 'Friday' },
+  { value: '6', label: 'Saturday' },
+  { value: '0', label: 'Sunday' },
+]
 
 async function updateName(formData: FormData) {
   'use server'
@@ -96,6 +106,83 @@ export default async function SettingsPage() {
               </form>
             ))}
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Goals */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">🎯 Your goals</CardTitle>
+          <CardDescription>
+            Set your daily targets and ManvFat schedule. These drive the calorie ring on your dashboard.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form action={saveGoals} className="space-y-5">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="dailyCalorieTarget">Daily calorie target (kcal)</Label>
+                <Input
+                  id="dailyCalorieTarget"
+                  name="dailyCalorieTarget"
+                  type="number"
+                  defaultValue={user?.dailyCalorieTarget ?? 2000}
+                  min="1000"
+                  max="5000"
+                  step="50"
+                />
+                <p className="text-xs text-gray-400">Most men losing weight aim for 1,500–2,000 kcal.</p>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="dailyProteinTarget">Daily protein target (g)</Label>
+                <Input
+                  id="dailyProteinTarget"
+                  name="dailyProteinTarget"
+                  type="number"
+                  defaultValue={user?.dailyProteinTarget ?? 150}
+                  min="50"
+                  max="400"
+                  step="5"
+                />
+                <p className="text-xs text-gray-400">Aim for 1.6–2.2g per kg of bodyweight.</p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="weighInDay">ManvFat weigh-in day</Label>
+                <select
+                  id="weighInDay"
+                  name="weighInDay"
+                  defaultValue={user?.weighInDay ?? ''}
+                  className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <option value="">Not set</option>
+                  {daysOfWeek.map((d) => (
+                    <option key={d.value} value={d.label.toLowerCase()}>{d.label}</option>
+                  ))}
+                </select>
+                <p className="text-xs text-gray-400">The app will remind you the evening before.</p>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="matchDayOfWeek">Football match day</Label>
+                <select
+                  id="matchDayOfWeek"
+                  name="matchDayOfWeek"
+                  defaultValue={user?.matchDayOfWeek !== null && user?.matchDayOfWeek !== undefined ? String(user.matchDayOfWeek) : ''}
+                  className="flex h-10 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <option value="">Not set</option>
+                  {daysOfWeek.map((d) => (
+                    <option key={d.value} value={d.value}>{d.label}</option>
+                  ))}
+                </select>
+                <p className="text-xs text-gray-400">You&apos;ll get a pre-match meal nudge on this day.</p>
+              </div>
+            </div>
+
+            <Button type="submit" variant="outline" size="sm">Save goals</Button>
+          </form>
         </CardContent>
       </Card>
 
