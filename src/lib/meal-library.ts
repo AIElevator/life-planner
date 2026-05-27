@@ -365,7 +365,7 @@ const turkeyBolognese: LibraryMeal = {
     'Stir in tomatoes, tomato purée, and oregano. Simmer for 15 minutes.',
     'Season generously and serve over spaghetti.',
   ],
-  imageUrl: '/images/recipes/turkey-bolognaise.png',
+  imageUrl: '/images/recipes/turkey-bolognaise.webp',
 }
 
 const bakedSalmonRoastedVeg: LibraryMeal = {
@@ -395,7 +395,7 @@ const bakedSalmonRoastedVeg: LibraryMeal = {
     'Push veg to the sides and place salmon on the tray. Bake for a further 12–15 minutes.',
     'Serve salmon on the veg with a wedge of lemon.',
   ],
-  imageUrl: '/images/recipes/salmon-roasted-veg.png',
+  imageUrl: '/images/recipes/salmon-roasted-veg.webp',
 }
 
 const chickenTikkaMasala: LibraryMeal = {
