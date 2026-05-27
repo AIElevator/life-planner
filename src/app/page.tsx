@@ -1,5 +1,8 @@
 import { redirect } from 'next/navigation'
+import { after } from 'next/server'
+import { headers } from 'next/headers'
 import { getSession } from '@/lib/auth'
+import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import {
   ChevronRight,
@@ -17,6 +20,16 @@ import {
 export default async function HomePage() {
   const session = await getSession()
   if (session) redirect('/dashboard')
+
+  // Log visit to home page after response is sent — does not block render
+  const headersList = await headers()
+  const ip = headersList.get('x-forwarded-for')?.split(',')[0].trim()
+    ?? headersList.get('x-real-ip')
+    ?? 'unknown'
+
+  after(async () => {
+    await prisma.visit.create({ data: { ip } })
+  })
 
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
@@ -62,11 +75,11 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <p style={{ fontSize: '0.875rem', color: '#059669' }}>Free to use · No credit card required</p>
+          <p style={{ fontSize: '0.875rem', color: '#059669' }}>14-day free trial · No credit card required</p>
 
           {/* Feature pills */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px', marginTop: '48px', paddingTop: '40px', borderTop: '1px solid rgba(52,211,153,0.15)' }}>
-            {['25 healthy recipes', '7pm WhatsApp reminders', '12 home workouts without equipment', 'AI meal suggestions'].map((item) => (
+            {['50 healthy recipes', '7pm WhatsApp reminders', '12 home workouts without equipment', 'AI meal suggestions'].map((item) => (
               <span key={item} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.2)', color: '#6ee7b7', padding: '6px 14px', borderRadius: '9999px', fontSize: '0.8125rem', fontWeight: 500 }}>
                 <CheckCircle className="h-3.5 w-3.5 text-emerald-500" />
                 {item}
@@ -156,7 +169,7 @@ export default async function HomePage() {
           <Link href="/signup" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#34d399', color: '#022c22', padding: '16px 40px', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }}>
             Create your free account <ChevronRight className="h-4 w-4" />
           </Link>
-          <p style={{ fontSize: '0.875rem', color: '#065f46', marginTop: '16px' }}>Free forever · No credit card needed</p>
+          <p style={{ fontSize: '0.875rem', color: '#065f46', marginTop: '16px' }}>14-day free trial · No credit card needed</p>
         </div>
       </section>
 
