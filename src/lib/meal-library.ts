@@ -708,7 +708,7 @@ const riceCakesHummus: LibraryMeal = {
     'Top with sliced cucumber or red pepper if using.',
     'Eat immediately.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&q=80',
+  imageUrl: '/images/recipes/rice-cakes-hummus.webp',
 }
 
 const boiledEggs: LibraryMeal = {
@@ -732,7 +732,7 @@ const boiledEggs: LibraryMeal = {
     'Boil for 7 minutes for a set yolk, or 6 minutes for slightly jammy.',
     'Cool in cold water for 2 minutes before peeling.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80',
+  imageUrl: '/images/recipes/boiled-eggs.webp',
 }
 
 // ─── EXPORTS ──────────────────────────────────────────────────────────────────
