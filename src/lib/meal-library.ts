@@ -426,7 +426,7 @@ const chickenTikkaMasala: LibraryMeal = {
     'Stir in yoghurt off the heat.',
     'Scatter coriander and serve with basmati rice.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80',
+  imageUrl: '/images/recipes/chicken-tikka-masala.webp',
 }
 
 const beefChilli: LibraryMeal = {
