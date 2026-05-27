@@ -80,7 +80,7 @@ export default function LoginPage() {
             {passwordReset && (
               <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
-                Password updated successfully — sign in with your new password.
+                Password updated successfully. Sign in with your new password.
               </div>
             )}
 

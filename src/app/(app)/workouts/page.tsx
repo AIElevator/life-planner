@@ -30,7 +30,7 @@ export default async function WorkoutsPage({
     <div className="space-y-7">
       <div>
         <h1 className="text-2xl font-bold">Home Workouts</h1>
-        <p className="text-gray-500 text-sm mt-1">No equipment needed — do these anywhere, any time</p>
+        <p className="text-gray-500 text-sm mt-1">No equipment needed. Do these anywhere, any time.</p>
       </div>
 
       {/* Workout plans */}

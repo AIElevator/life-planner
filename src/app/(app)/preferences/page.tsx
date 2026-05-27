@@ -24,7 +24,7 @@ export default async function PreferencesPage() {
       <div>
         <h1 className="text-2xl font-bold">Food preferences</h1>
         <p className="text-gray-500 text-sm mt-1">
-          Tell us what you love and what to avoid — Claude will use this when suggesting meals.
+          Tell us what you love and what to avoid. This is used when suggesting meals.
         </p>
       </div>
 

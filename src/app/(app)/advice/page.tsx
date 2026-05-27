@@ -5,16 +5,16 @@ const supplements = [
     name: 'Protein (Whey or Plant)',
     evidence: 'Strong',
     benefit: 'Preserves muscle while losing fat, keeps you full longer',
-    dose: '20-30g post-workout or as a meal supplement',
-    notes: 'Most important supplement for men losing weight. A high-protein diet (1.6-2.2g per kg bodyweight) consistently outperforms low-protein for fat loss while maintaining muscle.',
+    dose: '20–30g post-workout or as a meal supplement',
+    notes: 'Most important supplement for men losing weight. A high-protein diet (1.6–2.2g per kg bodyweight) consistently outperforms low-protein for fat loss while maintaining muscle.',
     emoji: '💪',
     safe: true,
   },
   {
     name: 'Vitamin D3',
     evidence: 'Strong',
-    benefit: 'Most UK men are deficient — low levels linked to increased body fat and low testosterone',
-    dose: '1,000-4,000 IU daily, ideally with K2',
+    benefit: 'Most UK men are deficient; low levels are linked to increased body fat and low testosterone',
+    dose: '1,000–4,000 IU daily, ideally with K2',
     notes: 'The NHS recommends all UK adults supplement in autumn and winter. Deficiency is extremely common in the UK and is associated with fatigue, low mood, and difficulty losing weight.',
     emoji: '☀️',
     safe: true,
@@ -23,8 +23,8 @@ const supplements = [
     name: 'Omega-3 Fish Oil',
     evidence: 'Strong',
     benefit: 'Reduces inflammation, supports heart health, mild fat loss benefit',
-    dose: '2-3g combined EPA+DHA daily (not just total fish oil)',
-    notes: 'Strong evidence for cardiovascular health and reducing inflammation caused by excess body fat. Look for high-quality fish oil — check the EPA+DHA content, not just total oil.',
+    dose: '2–3g combined EPA+DHA daily (not just total fish oil)',
+    notes: 'Strong evidence for cardiovascular health and reducing inflammation caused by excess body fat. Look for high-quality fish oil and check the EPA+DHA content, not just total oil.',
     emoji: '🐟',
     safe: true,
   },
@@ -32,8 +32,8 @@ const supplements = [
     name: 'Creatine',
     evidence: 'Strong',
     benefit: 'Improves exercise performance, preserves muscle during fat loss',
-    dose: '3-5g daily — no loading phase needed',
-    notes: 'One of the most studied and safe supplements in existence. Won\'t make you bulky — it helps you work harder during exercise, burn more calories, and keep muscle while losing fat. Also has emerging evidence for cognitive function.',
+    dose: '3–5g daily, no loading phase needed',
+    notes: 'One of the most studied and safe supplements in existence. Won\'t make you bulky. It helps you work harder during exercise, burn more calories and keep muscle while losing fat. It also has emerging evidence for cognitive function.',
     emoji: '⚡',
     safe: true,
   },
@@ -41,7 +41,7 @@ const supplements = [
     name: 'Magnesium',
     evidence: 'Moderate',
     benefit: 'Supports sleep quality, muscle function, and blood sugar regulation',
-    dose: '200-400mg magnesium glycinate or citrate at night',
+    dose: '200–400mg magnesium glycinate or citrate at night',
     notes: 'Up to 70% of UK adults are deficient. Poor sleep directly sabotages weight loss by increasing hunger hormones. Magnesium glycinate is the best tolerated form.',
     emoji: '🌙',
     safe: true,
@@ -49,9 +49,9 @@ const supplements = [
   {
     name: 'Caffeine',
     evidence: 'Strong',
-    benefit: 'Increases metabolic rate by 3-11%, improves workout performance',
-    dose: 'Up to 400mg/day (roughly 4 coffees) — avoid after 2pm',
-    notes: 'Coffee and tea are perfectly good sources. Pre-workout supplements often contain high doses — check labels. Tolerance builds quickly, so cycling intake helps maintain effect.',
+    benefit: 'Increases metabolic rate by 3–11%, improves workout performance',
+    dose: 'Up to 400mg/day (roughly four coffees). Avoid after 2pm.',
+    notes: 'Coffee and tea are perfectly good sources. Pre-workout supplements often contain high doses, so check labels. Tolerance builds quickly, so cycling intake helps maintain effect.',
     emoji: '☕',
     safe: true,
   },
@@ -59,7 +59,7 @@ const supplements = [
     name: 'Fibre (Psyllium Husk)',
     evidence: 'Moderate',
     benefit: 'Increases satiety, slows digestion, feeds good gut bacteria',
-    dose: '5-10g with water before meals',
+    dose: '5–10g with water before meals',
     notes: 'Most UK men eat far less than the 30g daily fibre recommendation. Psyllium husk is cheap and very effective for hunger control. Always take with plenty of water.',
     emoji: '🌾',
     safe: true,
@@ -79,43 +79,43 @@ const weightLossTips = [
     icon: Scale,
     title: 'The only thing that matters for fat loss',
     colour: 'emerald',
-    content: 'A calorie deficit — consuming fewer calories than you burn. Everything else (low carb, keto, intermittent fasting) works because it helps you eat fewer calories. Find the approach you can stick to, not the "optimal" one.',
+    content: 'A calorie deficit: consuming fewer calories than you burn. Everything else (low carb, keto, intermittent fasting) works because it helps you eat fewer calories. Find the approach you can stick to, not the "optimal" one.',
     stat: '500 kcal deficit per day = ~0.5kg loss per week',
   },
   {
     icon: Brain,
     title: 'Protein is your best friend',
     colour: 'blue',
-    content: 'Eat 1.6–2.2g of protein per kg of bodyweight daily. Protein keeps you fuller for longer, has the highest thermic effect (your body burns 20-30% of protein calories just digesting it), and preserves the muscle you want to keep.',
-    stat: '80kg man → aim for 130-175g protein daily',
+    content: 'Eat 1.6–2.2g of protein per kg of bodyweight daily. Protein keeps you fuller for longer, has the highest thermic effect (your body burns 20–30% of protein calories just digesting it), and preserves the muscle you want to keep.',
+    stat: '80kg man → aim for 130–175g protein daily',
   },
   {
     icon: Droplets,
     title: 'Drink water before meals',
     colour: 'cyan',
-    content: 'Drinking 500ml of water 30 minutes before a meal reduces calorie intake by roughly 13% in studies. Your brain often confuses thirst for hunger. Aim for 2-3 litres of total fluid daily.',
+    content: 'Drinking 500ml of water 30 minutes before a meal reduces calorie intake by roughly 13% in studies. Your brain often confuses thirst for hunger. Aim for 2–3 litres of total fluid daily.',
     stat: '500ml pre-meal = ~13% fewer calories eaten',
   },
   {
     icon: Moon,
     title: 'Sleep is non-negotiable',
     colour: 'violet',
-    content: 'Less than 7 hours sleep increases hunger hormones (ghrelin) by 24% and decreases the fullness hormone (leptin) by 18%. Poor sleep directly causes you to eat more and store more fat. Prioritise 7-9 hours.',
-    stat: 'Under 7hrs sleep → 24% more hunger hormone',
+    content: 'Fewer than seven hours\' sleep increases hunger hormones (ghrelin) by 24% and decreases the fullness hormone (leptin) by 18%. Poor sleep directly causes you to eat more and store more fat. Prioritise 7–9 hours.',
+    stat: 'Under 7 hrs sleep → 24% more hunger hormone',
   },
   {
     icon: BookOpen,
     title: 'Track everything for 2 weeks',
     colour: 'amber',
-    content: 'Most people underestimate their calorie intake by 30-50%. Use this app to log every meal honestly for two weeks. You don\'t need to track forever — just long enough to understand your habits and portion sizes.',
-    stat: 'Most people underestimate intake by 30-50%',
+    content: 'Most people underestimate their calorie intake by 30–50%. Use this app to log every meal honestly for two weeks. You don\'t need to track forever. Just long enough to understand your habits and portion sizes.',
+    stat: 'Most people underestimate intake by 30–50%',
   },
   {
     icon: CheckCircle,
-    title: 'Lose weight slowly — 0.5-1kg per week',
+    title: 'Lose weight slowly: 0.5–1kg per week',
     colour: 'rose',
-    content: 'Faster loss usually means losing muscle alongside fat. Slow, sustainable loss preserves muscle, is easier to maintain, and is healthier long-term. Crash diets work short-term and fail long-term — 95% of the time.',
-    stat: '0.5-1kg/week is the gold standard for fat loss',
+    content: 'Faster loss usually means losing muscle alongside fat. Slow, sustainable loss preserves muscle, is easier to maintain and is healthier long term. Crash diets work short term and fail long term, 95% of the time.',
+    stat: '0.5–1kg/week is the gold standard for fat loss',
   },
 ]
 
@@ -138,7 +138,7 @@ export default function AdvicePage() {
     <div className="space-y-10">
       <div>
         <h1 className="text-2xl font-bold">Weight Loss Guide</h1>
-        <p className="text-gray-500 text-sm mt-1">Evidence-based advice — no gimmicks, no fads</p>
+        <p className="text-gray-500 text-sm mt-1">Evidence-based advice. No gimmicks, no fads.</p>
       </div>
 
       {/* Core principles */}
@@ -170,7 +170,7 @@ export default function AdvicePage() {
             <Pill className="h-5 w-5 text-gray-400" />
             Supplements that actually work
           </h2>
-          <p className="text-sm text-gray-500 mt-1">Only evidence-backed options — nothing hyped, nothing dangerous</p>
+          <p className="text-sm text-gray-500 mt-1">Only evidence-backed options. Nothing hyped, nothing dangerous.</p>
         </div>
 
         <div className="space-y-3">
@@ -209,7 +209,7 @@ export default function AdvicePage() {
       <section className="space-y-4">
         <h2 className="font-semibold text-gray-800 text-lg flex items-center gap-2">
           <AlertTriangle className="h-5 w-5 text-red-400" />
-          Save your money — these don&apos;t work
+          Don&apos;t waste your money on these
         </h2>
         <div className="bg-red-50 rounded-2xl border border-red-100 divide-y divide-red-100">
           {avoidList.map(item => (

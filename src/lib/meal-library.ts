@@ -54,7 +54,7 @@ const scrambledEggsToast: LibraryMeal = {
   prepMinutes: 10,
   costGBP: 1.20,
   tags: ['high-protein', 'quick', 'ManvFat-friendly'],
-  description: 'Fluffy scrambled eggs on seeded wholemeal toast — simple, filling, and packed with protein.',
+  description: 'Fluffy scrambled eggs on seeded wholemeal toast. Simple, filling and packed with protein.',
   ingredients: [
     '3 eggs',
     '2 slices wholemeal bread',
@@ -66,7 +66,7 @@ const scrambledEggsToast: LibraryMeal = {
   steps: [
     'Crack eggs into a bowl, add milk, season with salt and pepper, and whisk.',
     'Melt butter in a non-stick pan over low heat.',
-    "Pour in eggs. Stir slowly and continuously with a spatula until just set — don't overcook.",
+    "Pour in eggs. Stir slowly and continuously with a spatula until just set. Don't overcook.",
     'Toast the bread. Wilt spinach in the pan for 30 seconds if using.',
     'Serve eggs immediately on toast.',
   ],
@@ -347,7 +347,7 @@ const turkeyBolognese: LibraryMeal = {
   prepMinutes: 30,
   costGBP: 4.20,
   tags: ['high-protein', 'batch-cook', 'ManvFat-friendly'],
-  description: 'All the comfort of a classic spag bol with turkey mince instead — leaner and just as tasty.',
+  description: 'All the comfort of a classic spag bol with turkey mince instead. Leaner and just as tasty.',
   ingredients: [
     '400g turkey mince',
     '1 onion, diced',
@@ -378,7 +378,7 @@ const bakedSalmonRoastedVeg: LibraryMeal = {
   prepMinutes: 35,
   costGBP: 5.50,
   tags: ['high-protein', 'healthy-fats', 'ManvFat-friendly'],
-  description: 'Classic healthy dinner — baked salmon with a tray of roasted Mediterranean vegetables.',
+  description: 'A classic healthy dinner: baked salmon with a tray of roasted Mediterranean vegetables.',
   ingredients: [
     '200g salmon fillet',
     '1 courgette, chopped',
@@ -408,7 +408,7 @@ const chickenTikkaMasala: LibraryMeal = {
   prepMinutes: 30,
   costGBP: 4.00,
   tags: ['high-protein', 'batch-cook', 'ManvFat-friendly'],
-  description: "A lighter version of the nation's favourite — big flavour, less cream. Serve with basmati rice.",
+  description: "A lighter version of the nation's favourite: big flavour, less cream. Serve with basmati rice.",
   ingredients: [
     '400g chicken breast, diced',
     '1 onion, diced',
@@ -501,7 +501,7 @@ const cottagePieSweetPotato: LibraryMeal = {
   prepMinutes: 50,
   costGBP: 5.00,
   tags: ['high-protein', 'batch-cook', 'ManvFat-friendly'],
-  description: 'A healthier take on the classic — lean beef mince topped with sweet potato mash. Pure comfort food.',
+  description: 'A healthier take on the classic: lean beef mince topped with sweet potato mash. Pure comfort food.',
   ingredients: [
     '400g lean beef mince',
     '2 large sweet potatoes',

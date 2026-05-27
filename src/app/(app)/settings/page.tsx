@@ -73,7 +73,7 @@ export default async function SettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Household members</CardTitle>
-          <CardDescription>Update names and ages so Claude gives accurate suggestions</CardDescription>
+          <CardDescription>Update names and ages for accurate meal suggestions</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -112,7 +112,7 @@ export default async function SettingsPage() {
           </CardTitle>
           <CardDescription>
             You&apos;ll get a WhatsApp message at 7pm on any day you haven&apos;t logged your food.
-            Just add your number — no extra setup needed.
+            Just add your number. No extra setup needed.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -126,7 +126,7 @@ export default async function SettingsPage() {
                 placeholder="447700900123"
               />
               <p className="text-xs text-gray-400">
-                UK example: 447700900123 — include country code, no + or spaces.
+                UK example: 447700900123. Include the country code with no + or spaces.
                 Leave blank to turn off reminders.
               </p>
             </div>
@@ -141,7 +141,7 @@ export default async function SettingsPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-gray-500 mb-3">Your account email: <strong>{user?.email}</strong></p>
-          <p className="text-xs text-gray-400">To delete your account or change your password, contact support.</p>
+          <p className="text-xs text-gray-400">To delete your account, contact support. You can change your password via the <a href="/forgot-password" className="underline hover:text-gray-600">forgot password</a> link on the sign-in page.</p>
         </CardContent>
       </Card>
     </div>

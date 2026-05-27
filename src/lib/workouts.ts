@@ -33,7 +33,7 @@ export const exercises: Exercise[] = [
       'Keep your chest up and knees tracking over your toes',
       'Drive through your heels to stand back up',
     ],
-    tips: ['Go slow on the way down — 3 seconds down, 1 second up', 'Keep your weight in your heels', 'Squeeze glutes at the top'],
+    tips: ['Go slow on the way down: 3 seconds down, 1 second up', 'Keep your weight in your heels', 'Squeeze glutes at the top'],
     imageUrl: '/images/exercises/bodyweight-squat.webp',
   },
   {
@@ -54,7 +54,7 @@ export const exercises: Exercise[] = [
       'Keep elbows at roughly 45° from your torso (not flared wide)',
       'Push back up to starting position',
     ],
-    tips: ['Can\'t do full ones? Start on your knees — that\'s fine', 'Avoid letting hips sag or pike up', 'Slow and controlled beats fast and sloppy'],
+    tips: ['Can\'t do full ones? Start on your knees. That\'s fine.', 'Avoid letting hips sag or pike up', 'Slow and controlled beats fast and sloppy'],
     imageUrl: '/images/exercises/press-up.webp',
   },
   {
@@ -70,12 +70,12 @@ export const exercises: Exercise[] = [
     calories: 5,
     instructions: [
       'Rest on your forearms and toes, elbows directly under your shoulders',
-      'Keep your body in a straight line — no sagging hips or raised bum',
+      'Keep your body in a straight line. No sagging hips or raised bum.',
       'Squeeze your abs, glutes, and thighs throughout',
-      'Breathe steadily — don\'t hold your breath',
+      'Breathe steadily. Don\'t hold your breath.',
       'Hold for the target time',
     ],
-    tips: ['Focus on quality over time — 20 perfect seconds beats 60 sloppy ones', 'Stare at the floor to keep neck neutral', 'Build up time gradually each week'],
+    tips: ['Focus on quality over time. 20 perfect seconds beats 60 sloppy ones.', 'Stare at the floor to keep neck neutral', 'Build up time gradually each week'],
     imageUrl: '/images/exercises/plank-hold.webp',
   },
   {
@@ -93,7 +93,7 @@ export const exercises: Exercise[] = [
       'Stand tall, feet hip-width apart',
       'Step one foot backwards, lowering your back knee towards the floor',
       'Front thigh should be roughly parallel to the floor',
-      'Keep your torso upright — don\'t lean forward',
+      'Keep your torso upright. Don\'t lean forward.',
       'Push through your front heel to return to start, then alternate legs',
     ],
     tips: ['Reverse lunges are easier on the knees than forward lunges', 'Hold on to a wall if balance is an issue', 'Keep front knee directly over your ankle'],
@@ -117,7 +117,7 @@ export const exercises: Exercise[] = [
       'Optionally do a press-up here',
       'Jump or step feet back to your hands, then explosively jump up with arms overhead',
     ],
-    tips: ['No shame in stepping instead of jumping — same muscles, less impact', 'Rest more between sets if needed — these are tough', 'Brilliant for burning fat in short sessions'],
+    tips: ['No shame in stepping instead of jumping. Same muscles, less impact.', 'Rest more between sets if needed. These are tough.', 'Brilliant for burning fat in short sessions'],
     imageUrl: '/images/exercises/burpee.webp',
   },
   {
@@ -134,9 +134,9 @@ export const exercises: Exercise[] = [
     instructions: [
       'Start in a high plank position, hands under shoulders',
       'Drive your right knee towards your chest',
-      'Quickly switch — drive left knee in as right leg extends back',
+      'Quickly switch, driving your left knee in as your right leg extends back',
       'Continue alternating at a controlled pace',
-      'Keep hips level — don\'t let them rise or sag',
+      'Keep hips level. Don\'t let them rise or sag.',
     ],
     tips: ['Slower = more core work. Faster = more cardio', 'Keep breathing throughout', 'Great for burning calories without equipment'],
     imageUrl: '/images/exercises/mountain-climbers.webp',
@@ -159,7 +159,7 @@ export const exercises: Exercise[] = [
       'Hold for 1-2 seconds at the top',
       'Lower slowly back to the floor',
     ],
-    tips: ['Brilliant for men who sit all day — fires up inactive glutes', 'Pause and squeeze hard at the top', 'Can make harder by extending one leg'],
+    tips: ['Brilliant for men who sit all day. Fires up inactive glutes.', 'Pause and squeeze hard at the top', 'Can make harder by extending one leg'],
     imageUrl: '/images/exercises/glute-bridge.webp',
   },
   {
@@ -201,7 +201,7 @@ export const exercises: Exercise[] = [
       'Keep your back close to the chair throughout',
       'Press back up to starting position',
     ],
-    tips: ['Feet closer to you = easier. Feet further out = harder', 'Keep elbows pointing straight back, not flaring sideways', 'Use a sturdy chair or bench — not a wheeled office chair!'],
+    tips: ['Feet closer to you = easier. Feet further out = harder', 'Keep elbows pointing straight back, not flaring sideways', 'Use a sturdy chair or bench, not a wheeled office chair!'],
     imageUrl: '/images/exercises/chair-tricep-dip.webp',
   },
   {
@@ -222,7 +222,7 @@ export const exercises: Exercise[] = [
       'Land lightly on the balls of your feet',
       'Maintain an upright posture throughout',
     ],
-    tips: ['Great indoor cardio when the weather is awful', 'Drive arms to increase intensity', 'Can slow down to a march if needed — still burns calories'],
+    tips: ['Great indoor cardio when the weather is awful', 'Drive arms to increase intensity', 'Can slow down to a march if needed. Still burns calories.'],
     imageUrl: '/images/exercises/high-knees.webp',
   },
   {
@@ -243,7 +243,7 @@ export const exercises: Exercise[] = [
       'Lower slowly back to the floor',
       'Repeat for reps',
     ],
-    tips: ['Brilliant for men with lower back issues or who sit at a desk all day', 'Don\'t strain your neck — look at the floor', 'Builds the posterior chain which most desk workers neglect'],
+    tips: ['Brilliant for men with lower back issues or who sit at a desk all day', 'Don\'t strain your neck. Look at the floor.', 'Builds the posterior chain which most desk workers neglect'],
     imageUrl: '/images/exercises/superman-hold.webp',
   },
   {
@@ -264,7 +264,7 @@ export const exercises: Exercise[] = [
       'Hold the position for the target time',
       'Slide back up to standing to rest',
     ],
-    tips: ['Burns more than you\'d expect — great for legs and fat loss', 'Don\'t let knees cave inward', 'Can make harder by holding a weight on your thighs'],
+    tips: ['Burns more than you\'d expect. Great for legs and fat loss.', 'Don\'t let knees cave inward', 'Can make harder by holding a weight on your thighs'],
     imageUrl: '/images/exercises/wall-sit.webp',
   },
 ]
@@ -291,7 +291,7 @@ export const workoutPlans = [
   {
     id: 'core-strength',
     name: 'Core & Posture',
-    description: 'Daily, 15 minutes — great for desk workers',
+    description: 'Daily, 15 minutes. Great for desk workers.',
     exercises: ['plank', 'glute-bridge', 'superman', 'mountain-climber', 'wall-sit'],
     targetMinutes: 15,
     difficulty: 'beginner' as const,

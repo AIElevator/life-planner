@@ -57,7 +57,7 @@ export default async function FamilyPage() {
       <div>
         <h1 className="text-2xl font-bold">Family members</h1>
         <p className="text-gray-500 text-sm mt-1">
-          Manage who eats together — Claude uses ages and relationships when suggesting meals.
+          Manage who eats together. Ages and relationships are used when suggesting meals.
         </p>
       </div>
 

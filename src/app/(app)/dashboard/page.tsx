@@ -300,7 +300,7 @@ export default async function DashboardPage() {
           </div>
           <h2 className="text-lg font-bold mb-1 leading-tight">What&apos;s for dinner tonight?</h2>
           <p className="text-emerald-100/80 text-sm mb-5">
-            Let Claude suggest something delicious based on your family&apos;s preferences.
+            Get a personalised meal suggestion based on your family&apos;s preferences.
           </p>
 
           <div className="flex flex-wrap gap-3">

@@ -95,7 +95,7 @@ export default async function MealsPage({
               📋 Share your food tracker
             </h2>
             <p className="text-emerald-100 text-sm mt-0.5">
-              Generate a link to this week&apos;s tracker — paste it straight into WhatsApp for your ManvFat Club Manager.
+              Generate a link to this week&apos;s tracker and paste it straight into WhatsApp for your ManvFat Club Manager.
             </p>
           </div>
           <ShareDiaryButton weekDate={thisWeekStart} />

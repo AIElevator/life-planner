@@ -90,7 +90,7 @@ export function MealSuggestPanel({ familyMembers }: { familyMembers: FamilyMembe
             </div>
             <div>
               <h2 className="text-lg font-semibold text-white">AI meal suggestions</h2>
-              <p className="mt-0.5 text-sm text-violet-200">Claude picks the perfect meal for your family</p>
+              <p className="mt-0.5 text-sm text-violet-200">Personalised meal suggestions for your family</p>
             </div>
           </div>
         </div>
@@ -190,7 +190,7 @@ export function MealSuggestPanel({ familyMembers }: { familyMembers: FamilyMembe
             {loading ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Claude is thinking…
+                Finding the best options…
               </>
             ) : (
               <>
