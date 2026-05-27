@@ -181,7 +181,7 @@ const bananaPorridge: LibraryMeal = {
     'Cook over medium heat, stirring regularly, for 5–6 minutes until thick and creamy.',
     'Pour into a bowl. Top with sliced banana, a drizzle of honey, and a pinch of cinnamon.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1495214783159-3503fd1b572d?w=600&q=80',
+  imageUrl: '/images/recipes/banana-porridge.webp',
 }
 
 // ─── LUNCH (5) ────────────────────────────────────────────────────────────────
