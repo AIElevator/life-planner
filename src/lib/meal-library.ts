@@ -636,7 +636,7 @@ const appleWithPeanutButter: LibraryMeal = {
     'Core and slice the apple into wedges.',
     'Serve with peanut butter on the side for dipping.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80',
+  imageUrl: '/images/recipes/apple-peanut-butter.webp',
 }
 
 const cottageCheeseCucumber: LibraryMeal = {
@@ -684,7 +684,7 @@ const mixedNutsBanana: LibraryMeal = {
     'Measure nuts into a small bag or bowl.',
     'Eat alongside the banana.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=600&q=80',
+  imageUrl: '/images/recipes/mixed-nuts-banana.webp',
 }
 
 const riceCakesHummus: LibraryMeal = {
