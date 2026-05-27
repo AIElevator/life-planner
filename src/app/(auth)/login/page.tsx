@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useActionState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -8,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { UtensilsCrossed, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react'
 
-export default function LoginPage() {
+function LoginInner() {
   const [state, action, pending] = useActionState(login, undefined)
   const searchParams = useSearchParams()
   const passwordReset = searchParams.get('reset') === '1'
@@ -159,5 +160,13 @@ export default function LoginPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginInner />
+    </Suspense>
   )
 }
