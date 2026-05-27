@@ -108,28 +108,27 @@ export default async function WorkoutsPage({
               <summary className="cursor-pointer list-none">
                 {/* Card preview image */}
                 {ex.imageUrl ? (
-                  <div className="relative h-40 bg-gray-100 overflow-hidden">
+                  <div className="bg-gray-50">
                     <img
                       src={ex.imageUrl}
                       alt={ex.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-auto block"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                    <div className="px-4 py-3 flex items-center justify-between border-t border-gray-100">
                       <div>
-                        <h3 className="font-semibold text-white text-sm leading-tight">{ex.name}</h3>
-                        <p className="text-white/70 text-xs mt-0.5">{ex.muscles.join(' · ')}</p>
+                        <h3 className="font-semibold text-gray-900 text-sm leading-tight">{ex.name}</h3>
+                        <p className="text-gray-400 text-xs mt-0.5">{ex.muscles.join(' · ')}</p>
                       </div>
-                      <ChevronDown className="h-4 w-4 text-white/80 shrink-0 group-open:rotate-180 transition-transform mb-0.5" />
-                    </div>
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span className={`text-xs font-medium rounded-full border px-2 py-0.5 capitalize backdrop-blur-sm ${difficultyColour(ex.difficulty)}`}>
-                        {ex.difficulty}
-                      </span>
-                    </div>
-                    <div className="absolute top-3 right-3 flex items-center gap-1 text-xs text-white/80 bg-black/20 backdrop-blur-sm rounded-full px-2 py-0.5">
-                      <Flame className="h-3 w-3 text-orange-300" /> ~{ex.calories * ex.sets} kcal
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className={`text-xs font-medium rounded-full border px-2 py-0.5 capitalize ${difficultyColour(ex.difficulty)}`}>
+                          {ex.difficulty}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-gray-400">
+                          <Flame className="h-3 w-3 text-orange-400" /> ~{ex.calories * ex.sets} kcal
+                        </span>
+                        <ChevronDown className="h-4 w-4 text-gray-400 group-open:rotate-180 transition-transform" />
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -158,11 +157,11 @@ export default async function WorkoutsPage({
                 {ex.imageUrl && (
                   <div className="px-5 pt-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">Demonstration</p>
-                    <div className="rounded-xl overflow-hidden h-52 bg-gray-100">
+                    <div className="rounded-xl overflow-hidden bg-gray-50">
                       <img
                         src={ex.imageUrl}
                         alt={`${ex.name} demonstration`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto block"
                       />
                     </div>
                   </div>
