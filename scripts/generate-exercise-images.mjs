@@ -101,19 +101,19 @@ async function main() {
 
     try {
       const response = await client.images.generate({
-        model: 'dall-e-3',
+        model: 'gpt-image-1',
         prompt: ex.prompt,
-        size: '1024x1792',  // Portrait — captures full body
-        quality: 'hd',
+        size: '1024x1536',  // Portrait — captures full body
+        quality: 'high',
         n: 1,
       })
 
-      const imageUrl = response.data[0].url
       const pngPath = path.join(OUTPUT_DIR, `${ex.filename}.png`)
       const webpPath = path.join(OUTPUT_DIR, `${ex.filename}.webp`)
 
-      // Download PNG
-      await downloadFile(imageUrl, pngPath)
+      // Save from base64
+      const b64 = response.data[0].b64_json
+      fs.writeFileSync(pngPath, Buffer.from(b64, 'base64'))
 
       // Convert to WebP using ImageMagick
       execSync(`magick "${pngPath}" -quality 85 "${webpPath}"`)
