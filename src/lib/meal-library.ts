@@ -41,7 +41,7 @@ const overnightOats: LibraryMeal = {
     'In the morning, top with berries and drizzle with honey.',
     'Add a splash more milk if you prefer a looser consistency.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1614961233913-a5113a4a34ed?w=600&q=80',
+  imageUrl: '/images/recipes/overnight-oats.webp',
 }
 
 const scrambledEggsToast: LibraryMeal = {
@@ -70,7 +70,7 @@ const scrambledEggsToast: LibraryMeal = {
     'Toast the bread. Wilt spinach in the pan for 30 seconds if using.',
     'Serve eggs immediately on toast.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80',
+  imageUrl: '/images/recipes/scrambled-eggs.webp',
 }
 
 const greekYoghurtParfait: LibraryMeal = {
@@ -97,7 +97,7 @@ const greekYoghurtParfait: LibraryMeal = {
     'Layer the remaining yoghurt on top.',
     'Top with strawberries, remaining granola, and a drizzle of honey.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80',
+  imageUrl: '/images/recipes/greek-yoghurt-parfait.webp',
 }
 
 const proteinSmoothie: LibraryMeal = {
@@ -612,7 +612,7 @@ const vegChickpeaCurry: LibraryMeal = {
     'Simmer for 20–25 minutes until sweet potato is tender.',
     'Season well and serve with basmati rice or naan.',
   ],
-  imageUrl: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80',
+  imageUrl: '/images/recipes/chickpea-curry.webp',
 }
 
 // ─── SNACKS (5) ───────────────────────────────────────────────────────────────
